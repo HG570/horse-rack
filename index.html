@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="src/img/horse_icon.png">
+    <link rel="stylesheet" href="src/style/style.css">
+    <title>Bicicletários</title>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <h1>Bicicletários</h1>
+            <div class="navbar">
+                <ul>
+                    <li><a class="" href="./src/pages/login.html">Login</a></li>    
+                    <li><a class="" href="./src/pages/register.html">Cadastrar</a></li>     
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="cards">
+            <article class="card">
+                <img src="./src/img/vacancies.jpg" alt="Foto Vagas do Bicicletário">
+                <h1>Vagas</h1>
+            </article>
+            <article class="card">
+                <img src="./src/img/bikerack_banner.jpg" alt="Foto Bicicletário">
+                <h1>Bicicletários</h1>
+            </article>
+            <article class="card">
+                <img src="./src/img/ciclista_cidadao.png" alt="Logo Ciclista Cidadão">
+                <h1>Ciclista Cidadão</h1>
+            </article>
+            <article class="card">
+                <img src="" alt="Foto Paraciclos">
+                <h1>Paraciclos</h1>
+            </article>
+        </section>
+        <section class="modalDialog" id="modalDialog">
+            <section class="area_start">
+            <div class="access_menu">
+                <figure class="access_logo">
+                    <img src="src/img/horse_logo.png" alt="Logo">
+                </figure>
+                <h1>Bem-Vindo</h1>
+                <br>
+                <a href="./src/pages/register.html"><button class="access_btn">Criar Conta</button></a>
+                <br>
+                <a href="./src/pages/login.html"><button class="access_btn">Login</button></a>
+                <br><br>
+                <button class="access_btn" onclick="firstAccess()">Acessar</button>
+            </div></section>
+        </section>
+    </main>
+    <script>
+        var accessMenu = document.getElementById('modalDialog')
+
+        function firstAccess() {
+            localStorage.access = '1'
+            accessMenu.classList.remove('show')
+        }
+
+        if (localStorage.access == '1'){
+            accessMenu.classList.remove('show')
+        }else{
+            accessMenu.classList.add('show')
+        }
+</script>
+</body>
+</html>
