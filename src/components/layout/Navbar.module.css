@@ -1,0 +1,42 @@
+.background_navbar {  
+    background-color: #E31E26;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 10vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 2%;
+    max-width: 100%;
+    text-transform: uppercase;
+}
+
+.navbar li {
+    margin: 0 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    padding: 1%;
+    font-size: 75%;
+}
+
+.navbar svg {
+    font-size: 2.5em;
+    cursor: pointer;
+    color: white;
+}
