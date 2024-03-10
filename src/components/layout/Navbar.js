@@ -20,7 +20,7 @@ function Navbar(){
                     </Link>
                 </li>
                 <li>
-                    <Link to="/">
+                    <Link to="/conta">
                         <HiMiniUser />
                         Conta
                     </Link>
