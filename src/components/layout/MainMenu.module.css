@@ -50,8 +50,12 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .container {
+        padding: 30px;
+        gap: 28px
+    }
     .card {
         flex-basis: 20%;
-        height: 30vh;
+        height: 60vh;
     }
 }
