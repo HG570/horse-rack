@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar"
 import Home from './pages/Home'
 import Notifications from './pages/Notifications'
 import Account from './pages/Account'
+import Vacancies from './pages/Vacancies'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/notificacoes" element={<Notifications />} />
           <Route path="/conta" element={<Account />} />
+
+          <Route path="/vagas" element={<Vacancies />} />
         </Routes>
         <Navbar />
       </Router>
