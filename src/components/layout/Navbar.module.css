@@ -1,5 +1,5 @@
 .background_navbar {  
-    background-color: #E31E26;
+    background-color: var(--red-cptm);
     position: fixed;
     width: 100%;
     left: 0;
@@ -39,4 +39,10 @@
     font-size: 2.5em;
     cursor: pointer;
     color: white;
+}
+
+@media screen and (max-height: 508px) {
+    .background_navbar{
+        height: 16vh;
+    }
 }
