@@ -4,7 +4,8 @@ import { HiMiniHome, HiMiniBell, HiMiniUser } from 'react-icons/hi2'
 
 function Navbar(){
     return (
-        <div className={styles.background_navbar}>
+        <footer>
+            <div className={styles.background_navbar}>
             <ul className={styles.navbar}>
                 <li>
                     <Link to="/">
@@ -13,7 +14,7 @@ function Navbar(){
                     </Link>
                 </li>
                 <li>
-                    <Link to="/">
+                    <Link to="/notificacoes">
                         <HiMiniBell />
                         Notificações
                     </Link>
@@ -26,6 +27,7 @@ function Navbar(){
                 </li>
             </ul>
         </div>
+        </footer>
     )
 }
 
