@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from '../layout/MainMenu.module.css'
 import bikerack_banner from '../../img/bikerack_banner.jpg'
 import ciclista_cidadao from '../../img/ciclista_cidadao.png'
@@ -8,8 +9,10 @@ function MainMenu() {
     return(
         <section className={styles.container}>
             <article className={styles.card}>
-                <img src={vacancies} alt="Foto Vagas do Bicicletário"/>
-                <h3>Vagas</h3>
+                <Link to="/vagas">sr
+                    <img src={vacancies} alt="Foto Vagas do Bicicletário"/>
+                    <h3>Vagas</h3>
+                </Link>
             </article>
             <article className={styles.card}>
                 <img src={bikerack_banner} alt="Foto Bicicletário"/>
