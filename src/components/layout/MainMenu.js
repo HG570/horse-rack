@@ -9,7 +9,7 @@ function MainMenu() {
     return(
         <section className={styles.container}>
             <article className={styles.card}>
-                <Link to="/vagas">sr
+                <Link to="/vagas">
                     <img src={vacancies} alt="Foto Vagas do Bicicletário"/>
                     <h3>Vagas</h3>
                 </Link>
