@@ -1,13 +1,14 @@
-import styles from '../style/vacancies.module.css'
+import VacancieNumber from '../components/layout/VacanciesNumber';
+import VacancyLine from '../components/layout/VacancyLine';
+import styles from './Vacancies.module.css'
+import { HiChevronDown } from 'react-icons/hi2'
 
 function Vacancies() {
     return (
         <div>
-            <h1>Vagas</h1>
+            <h1 className={styles.title}>Vagas</h1>
             <ul className={styles.container}>
-                <li className={styles.card}>
-                    <h3>Linha 0 - Teste</h3>
-                </li>
+                <VacancyLine />
             </ul>
         </div>
     )
