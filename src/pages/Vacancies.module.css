@@ -1,0 +1,13 @@
+.container {
+    padding: 0  5.556%  5.556%  5.556%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10%;
+    gap: 14px;
+}
+.title {
+    text-align: center;
+    margin: 38px 0 38px 0;
+}

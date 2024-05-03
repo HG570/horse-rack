@@ -1,0 +1,50 @@
+
+.title {
+    text-align: center;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 2%;
+    max-width: 100%;
+    text-transform: uppercase;
+    flex-direction: column;
+    margin-bottom: 8%;
+}
+.options {
+    padding: 0  5.556%  5.556%  5.556%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10%;
+    gap: 14px;
+}
+
+.option {
+    width: 100%;
+    background-color: var(--red-cptm);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.5s;
+    position: relative;
+    flex-grow: 1;
+    height: 6.5vh;
+    flex-basis: 100%;
+    color: var(--white);
+    padding: 3.75%;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 125%; 
+    text-decoration: none;
+}
+
+
+.options svg {
+    padding-right: 12px;
+    color: var(--white);
+}
