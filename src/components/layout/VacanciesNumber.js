@@ -1,5 +1,5 @@
 import styles from './VacanciesNumber.module.css'
-let number = 70;
+let number = 200;
 let occupation = styles.normal;
 
 const maxNumber = 200;
