@@ -1,0 +1,18 @@
+.openingHours{
+    display: flex;
+    background-color: var(--dark-gray);
+    color: var(--white);
+    text-align: center;
+    border-radius: 1rem;
+    padding: 9px 8px;
+}
+
+.openingHours{
+    
+}
+
+.image {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
