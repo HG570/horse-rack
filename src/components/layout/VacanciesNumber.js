@@ -1,12 +1,10 @@
 import styles from './VacanciesNumber.module.css'
-let number = 200;
+
 let occupation = styles.normal;
 
-const maxNumber = 200;
-const percentage = (number / maxNumber) * 100;
 
-
-function VacancieNumber(){
+function VacancieNumber({number, maxNumber}){
+    const percentage = (number / maxNumber) * 100;
     if (percentage >= 75) {
         occupation = styles.high;
     } else if (percentage > 25 && percentage < 75) {
