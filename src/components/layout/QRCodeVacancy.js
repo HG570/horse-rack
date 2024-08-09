@@ -1,38 +1,37 @@
-import { useState } from 'react'
-import styles from './QRCodeVacancy.module.css'
-import VacanciesNumber from './VacanciesNumber'
-import { HiOutlineXMark } from 'react-icons/hi2'
+import styles from './QRCodeVacancy.module.css';
+import VacanciesNumber from './VacanciesNumber';
+import { HiOutlineXMark } from 'react-icons/hi2';
+import QRCodeGenerator from '../utils/QRCodeGenerator';
 
-export default function QRCodeVacancy({isOpen, setModalOpen}) {
-    const number = "0"
-    const line = "Teste"
-    let color = "var(--red-cptm)"
+export default function QRCodeVacancy({ isOpen, setQRCodeOpen, trainLine, name, numberOfVacancies, maxNumberOfVacancies }) {
+    let color = "var(--red-cptm)";
     document.documentElement.style.setProperty('--lineColor', color);
-    const name = "Rafael Pinheiro"
-    const documento = "CPF 000.000.000-00"
+    const userName = "Rafael Pinheiro";
+    const documento = "CPF 000.000.000-00";
+    const userToken = userName + documento;
 
-    if (isOpen){
-        return(
+    if (isOpen) {
+        return (
             <section className={styles.qrcodeCard}>
                 <article className={`${styles.card} `}>
-                    <h3>Linha {number} - {line}</h3>
-                    <button onClick={setModalOpen}>
-                        <HiOutlineXMark/>
+                    <h3>{trainLine}</h3>
+                    <button onClick={setQRCodeOpen}>
+                        <HiOutlineXMark />
                     </button>
                 </article>
                 <article className={styles.station}>
-                    <h4>Estação Teste</h4>
-                    <VacanciesNumber />
+                    <h4>{name}</h4>
+                    <VacanciesNumber number={numberOfVacancies} maxNumber={maxNumberOfVacancies} />
                 </article>
                 <article className={styles.data}>
-                    <img src="https://i.ibb.co/z4z4z4z/Screenshot-from-2021-04-17-17-10-01.png" alt="QR Code" />
+                    <QRCodeGenerator value={userToken} />
                     <ul>
-                        <li>Nome: {name}</li>
+                        <li>Nome: {userName}</li>
                         <li>Documento: {documento}</li>
                     </ul>
                 </article>
             </section>
-        )
+        );
     }
-    return null
+    return null;
 }

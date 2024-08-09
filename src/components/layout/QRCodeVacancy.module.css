@@ -4,6 +4,7 @@
     box-shadow: 0px 2px 4px 0px rgba(0,0,0, 0.25);
     position: absolute;
     background: var(--white);
+    z-index: 1;
 }
 
 .card {
@@ -22,6 +23,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 12px 12px 0px 0px;
+    
 }
 
 .data {
@@ -46,7 +48,7 @@
     padding: 3.75%;
 }
 
-.data img {
+.data svg {
     display: flex;
     margin: auto;
     justify-content: center;
