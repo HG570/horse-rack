@@ -1,4 +1,4 @@
-.background_navbar {  
+footer {
     background-color: var(--red-cptm);
     position: fixed;
     width: 100%;
@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .navbar {
     display:flex;
     justify-content: center;
@@ -28,11 +29,18 @@
 
 }
 
-.navbar li a {
-    text-decoration: none;
+.navbar li {
     color: white;
     padding: 1%;
     font-size: 75%;
+}
+
+.navbar li a {
+    all: unset;
+}
+
+.navbar li button {
+    all: unset;
 }
 
 .navbar svg {
