@@ -7,6 +7,7 @@
   --red: #C63E3E;
   --yellow: #FFCF25;
   --green: #2AA81F;
+  --green-citizen: #2EA854;
 }
 
 button {
@@ -22,6 +23,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} 
+
+main {
+  padding: 5.556%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 code {
