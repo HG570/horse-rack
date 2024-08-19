@@ -5,14 +5,28 @@
     text-align: center;
     border-radius: 1rem;
     padding: 9px 8px;
+    font-size: 0.8547rem;
 }
 
-.openingHours{
-    
+.openingHours article{
+    width: 100%;
+}
+
+.citizenObservation{
+    font-size: 0.666666rem;
+}
+
+.citizenList{
+    padding-left: 5dvw;
+    font-size: 0.8rem;
 }
 
 .image {
     display: flex;
     width: 100%;
     height: auto;
+}
+
+section {
+    margin-bottom: 10px;
 }
