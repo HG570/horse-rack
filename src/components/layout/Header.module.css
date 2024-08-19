@@ -1,8 +1,11 @@
 .head {
-    background-color: #f6f6f6;
-    color: #444;
     display: flex;
     justify-content: center;
     padding: 3.375vh 7.5vw;
     font-size: 100%;
+}
+
+header {
+    color: #444;
+    background-color: #f6f6f6;
 }
