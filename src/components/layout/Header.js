@@ -1,10 +1,23 @@
-import styles from './Header.module.css'
+// import styles from './Header.module.css'
+import { useLocation } from 'react-router-dom'
+import Back from '../button/Back'
 
-function Header() {
+function Header({ title }) {
+    const location = useLocation();
+    const isNotHomePage = location.pathname !== '/' && location.pathname !== '/conta';
+    if (!title){
+        title = "Bicicletários"
+    }
+    
     return (
-        <header className={styles.head}>
-            <h1>Bicicletários</h1>
-        </header>
+        <>
+            {isNotHomePage ? (
+                <Back />
+            ) : (
+                    <></>
+            )}
+            <h1>{title}</h1>
+        </>
     )
 }
 
