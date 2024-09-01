@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 10%;
     gap: 14px;
 }
 
@@ -23,6 +22,16 @@
     flex-basis: 100%;
 }
 
+.card::after {
+    box-shadow: 165px 0px 42.3px -16px rgba(0, 0, 0, 0.49) inset;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
 .card h3 {
     position: absolute;
     width: 104px;
@@ -31,15 +40,15 @@
     color:white;
     text-transform: uppercase;
     font-size: 100%;
+    z-index: 1;
 
 }
 
 .card img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     transition:0.5s;
-    box-shadow: 165px 0px 42.3px -16px rgba(0, 0, 0, 0.49) inset;
 }
 
 @media screen and (min-width: 576px) {
