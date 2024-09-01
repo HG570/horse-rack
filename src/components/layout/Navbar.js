@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
 import { HiMiniHome, HiOutlineQrCode, HiMiniUser } from 'react-icons/hi2'
 
 function Navbar({ onOpenQRCode, onClose }) {
+    const navigate = useNavigate()
     return (
         <>
             <section className={styles.background_navbar}>
@@ -14,7 +15,7 @@ function Navbar({ onOpenQRCode, onClose }) {
                         </Link>
                     </li>
                     <li>
-                        <button onClick={onOpenQRCode}>
+                        <button onClick={() => {localStorage.getItem('token') != null ? onOpenQRCode() : navigate('/signin')}}>
                             <HiOutlineQrCode />
                             QRCode
                         </button>
