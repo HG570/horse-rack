@@ -1,20 +1,21 @@
 import styles from './BikeRack.module.css';
 import VacanciesNumber from './VacanciesNumber';
-import { HiOutlinePlusSmall } from 'react-icons/hi2';
+import { HiInformationCircle } from 'react-icons/hi2';
 
-function BikeRack({ name, numberOfVacancies, maxNumberOfVacancies, trainLine, handleQRCodeOpen }) {
+function BikeRack({ name, numberOfVacancies, maxNumberOfVacancies, trainLine, lineColor, handleRackInfoOpen }) {
     return (
         <li className={styles.stationCard}>
             <p>{name}</p>
             <VacanciesNumber number={numberOfVacancies} maxNumber={maxNumberOfVacancies} />
-            <button onClick={() => handleQRCodeOpen(
+            <button onClick={() => handleRackInfoOpen(
                     trainLine,
                     name, 
                     numberOfVacancies, 
-                    maxNumberOfVacancies
+                    maxNumberOfVacancies,
+                    lineColor,
                 )
             }>
-                <HiOutlinePlusSmall />
+                <HiInformationCircle />
             </button>
         </li>
     );
