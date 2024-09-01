@@ -4,6 +4,9 @@
     padding: 0;
     width: 2.5rem;
     height: 2.5rem;
+    position: absolute;
+    left: 5.556%;
+    cursor: pointer;
 }
 
 .back svg{
