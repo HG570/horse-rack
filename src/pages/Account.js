@@ -1,30 +1,51 @@
 import { Link } from 'react-router-dom'
 import styles from './Account.module.css'
-import { HiMiniArrowRightOnRectangle, HiMiniCog6Tooth, HiMiniDocumentText } from "react-icons/hi2";
+import { HiMiniArrowRightOnRectangle, HiSquare3Stack3D, HiMiniCog6Tooth, HiMiniDocumentText, HiMiniUserCircle } from "react-icons/hi2";
 
 function Account() {
-    const name = 'Teste'
-    const userImage = 'https://via.placeholder.com/90.png'
     return (
         <>
-            <h1 className={styles.title}>Conta</h1>
-            <section className={styles.userInfo}>
-                <img src={userImage}></img>
-                <h3>{name}</h3>
+            <section className={styles.title}>
+                <h1 className={styles.title}>Conta</h1>
             </section>
             <section className={styles.options}>
-                <Link to="/personal-info" className={styles.option}>
-                    <HiMiniDocumentText />
-                    <h4>Dados Pessoais</h4>
-                </Link>
-                <Link to="/config" className={styles.option}>
-                    <HiMiniCog6Tooth />
-                    <h4>Configurações</h4>
-                </Link>
-                <Link to="/signin" className={styles.option}>
-                    <HiMiniArrowRightOnRectangle />
-                    <h4>Sair</h4>
-                </Link>
+                {localStorage.getItem('token') != null ?
+                    (
+                        <>
+                            <Link to="/personal-info" className={styles.option}>
+                                <HiMiniDocumentText />
+                                <h4>Dados Pessoais</h4>
+                            </Link>
+                            <Link to="/config" className={styles.option}>
+                                <HiSquare3Stack3D />
+                                <h4>Vagas Ocupadas</h4>
+                            </Link>
+                            <Link to="/config" className={styles.option}>
+                                <HiMiniCog6Tooth />
+                                <h4>Configurações</h4>
+                            </Link>
+                            <Link to="/" onClick={() => {
+                                localStorage.clear();
+                                sessionStorage.clear();
+                            }} className={styles.option}>
+                                <HiMiniArrowRightOnRectangle />
+                                <h4>Sair</h4>
+                            </Link>
+                        </>
+                    ) :
+                    (
+                        <>
+                            <Link to="/signin" className={styles.option}>
+                                <HiMiniUserCircle />
+                                <h4>Entrar na sua Conta</h4>
+                            </Link>
+                            <Link to="/config" className={styles.option}>
+                                <HiMiniCog6Tooth />
+                                <h4>Configurações</h4>
+                            </Link>
+                        </>
+                    )
+                }
             </section>
         </>
     )
