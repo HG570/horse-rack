@@ -1,4 +1,5 @@
 :root {
+  /* Colors Variables*/
   --white: #fff;
   --red-cptm: #E31E26;
   --black: #000;
@@ -8,6 +9,12 @@
   --yellow: #FFCF25;
   --green: #2AA81F;
   --green-citizen: #2EA854;
+
+  /* Font Weight Variables*/
+  --regular: 400;
+  --medium: 500;
+  --semiBold: 600;
+  --bold: 700;
 }
 
 button {
@@ -23,14 +30,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} 
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 3.375vh 7.5vw;
+  word-wrap: none;
+  color: var(--dark-gray);
+  background-color: var(--gray-cptm);
+}
 
 main {
-  padding: 5.556%;
+  padding: 2.5dvh 5.556%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 24px;
 }
 
 code {
