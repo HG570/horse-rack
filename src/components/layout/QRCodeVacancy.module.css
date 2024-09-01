@@ -1,15 +1,15 @@
 .qrcodeCard {
-    width: 87.5%;
+    width: 77.78dvw;
     border-radius: 12px;
     box-shadow: 0px 2px 4px 0px rgba(0,0,0, 0.25);
     position: absolute;
     background: var(--white);
-    z-index: 1;
+    z-index: 2;
 }
 
 .card {
     width: 100%;
-    background-color: var(--lineColor);
+    background-color: var(--red-cptm);
     box-sizing: border-box;
     overflow: hidden;
     transition: 0.5s;
@@ -27,9 +27,11 @@
 }
 
 .data {
+    display: flex;
     justify-content: space-between;
-    
-    padding: 3.75%;
+    flex-direction: column;
+    padding: 2.25dvh 3.3334dvw;
+    gap: 2.25dvh;
 }
 
 .station {
@@ -58,8 +60,11 @@
 }
 
 .data ul{
-    margin-top: 26px;
-    margin-bottom: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    text-align: center;
+
 }
 
 .data ul li{
@@ -68,7 +73,7 @@
     position: relative;
     flex-grow: 1;
     flex-basis: 100%;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .card button{
@@ -91,4 +96,19 @@
  
     width: 100%;
     height: auto;
+}
+
+.qrcodeUserName {
+    font-weight: var(--medium);
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000000a4;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
