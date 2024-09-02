@@ -1,18 +1,22 @@
-import styles from './SignIn.module.css'
-import Back from '../components/layout/Back'
+import styles from './ForgotPassword.module.css';
+import { useState } from 'react';
 
-function ForgotPassword (){
+function ForgotPassword() {
+    const [email, setEmail] = useState('');
+
     return (
         <>
-            <Back />
-            <section className={styles.access_menu}>
+
+            
+                <form className={styles.formForgot}>
                     <h1>Recuperação de Senha</h1>
-                    <div>
-                    <label for="email">Email</label>
-                    <input type="email" placeholder="Email" id="email" name="email" />
-                    </div>
+                    <article>
+                        <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                        <label className={styles.label} htmlFor="email">Email </label>
+                    </article>
+
                     <button>Solicitar Recuperação</button>
-            </section>
+                </form>
         </>
     )
 }
