@@ -1,26 +1,28 @@
 import vacancies from '../img/bicycle_examples.png'
 import styles from './CitizenCyclist.module.css'
-import Back from '../components/button/Back'
 import { Link } from 'react-router-dom'
 
 function CitizenCyclist() {
     return (
         <>
-            <Back />
-            <h1>Aqui sua bicicleta é bem-vinda​!</h1>
-            <section className={styles.openingHours}>
-                <article>
-                    <h3>Segunda a Sexta</h3>
-                    <p>Das 10h às 16h e após as 21h</p>
-                </article>
-                <article>
-                    <h3>Sábados, Domingos e Feriados</h3>
-                    <p>O dia inteiro</p>
-                </article>
+            <section className={styles.title}>
+                <h1>Aqui sua bicicleta é bem-vinda​!</h1>
             </section>
-            <section>
-                <p>Confira o <Link to="https://www.cptm.sp.gov.br/sua-viagem/bicicletas-CPTM/Documents/Regulamento%20Ciclista%20Cidad%C3%A3o.pdf">Regulamento do Ciclista Cidadão</Link></p>
-            </section>
+            <article>
+                <section className={styles.openingHours}>
+                    <article>
+                        <h3>Segunda a Sexta</h3>
+                        <p>Das 10h às 16h e após as 21h</p>
+                    </article>
+                    <article>
+                        <h3>Sábados, Domingos e Feriados</h3>
+                        <p>O dia inteiro</p>
+                    </article>
+                </section>
+                <section>
+                    <p>Confira o <Link to="https://www.cptm.sp.gov.br/sua-viagem/bicicletas-CPTM/Documents/Regulamento%20Ciclista%20Cidad%C3%A3o.pdf">Regulamento do Ciclista Cidadão</Link></p>
+                </section>
+            </article>
             <section className={styles.citizenObservation}>
                 <h2>Observações</h2>
                 <ul className={styles.citizenList}>

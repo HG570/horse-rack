@@ -27,6 +27,11 @@
     height: auto;
 }
 
-section {
-    margin-bottom: 10px;
+.title {
+    width: 100%;
+}
+
+.title h1{
+    text-align: center;
+    font-size: larger;
 }
