@@ -17,4 +17,14 @@ export const get = async (endpoint, options = {}) => {
     }
 };
 
+export const post = async (endpoint, data, options = {}) => {
+    try {
+        const response = await api.post(endpoint, data, options);
+        return response.data;
+    } catch (error) {
+        console.error(`Failed to post to ${endpoint}:`, error);
+        throw error;
+    }
+};
+
 export default api;
