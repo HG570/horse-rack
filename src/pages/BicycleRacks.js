@@ -2,14 +2,14 @@ import TrainLine from '../components/layout/TrainLine';
 import styles from './BicycleRacks.module.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import QRCodeVacancy from '../components/layout/QRCodeVacancy';
+import RackInfo from '../components/layout/InfoRack';
 import Loading from '../components/common/loading/Loading';
-import { fetchBikeRacks } from '../services/bikeStationApi';
+import { fetchBikeRacks } from '../services/BikeStationApi';
 
 function BicycleRacks() {
     let { id } = useParams();
-    const [openQRCode, setOpenQRCode] = useState(false);
-    const [qrCodeData, setQrCodeData] = useState({ trainLine: '', name: '', numberOfVacancies: '', maxNumberOfVacancies: '' });
+    const [openRackInfo, setOpenRackInfo] = useState(false);
+    const [rackInfoData, setRackInfoData] = useState({ trainLine: '', name: '', numberOfVacancies: '', maxNumberOfVacancies: '', lineColor: '' });
     const [trainLine, setTrainLine] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
 
@@ -38,29 +38,31 @@ function BicycleRacks() {
         fetchData();
     }, [id]);
 
-    const handleQRCodeOpen = (trainLine, name, numberOfVacancies, maxNumberOfVacancies) => {
-        setQrCodeData({ trainLine, name, numberOfVacancies, maxNumberOfVacancies });
-        setOpenQRCode(true);
-    };
-
+    const handleRackInfoOpen = (trainLine, name, numberOfVacancies, maxNumberOfVacancies, lineColor ) => {
+        setRackInfoData({ trainLine, name, numberOfVacancies, maxNumberOfVacancies, lineColor });
+        setOpenRackInfo(true);
+    }
+    
     return (
         <>
             <h1 className={styles.title}>Vagas</h1>
-            <QRCodeVacancy 
-                isOpen={openQRCode} 
-                setQRCodeOpen={() => setOpenQRCode(false)} 
-                trainLine={qrCodeData.trainLine} 
-                name={qrCodeData.name} 
-                numberOfVacancies={qrCodeData.numberOfVacancies} 
-                maxNumberOfVacancies={qrCodeData.maxNumberOfVacancies} 
+            <RackInfo
+                infoOpen={openRackInfo} 
+                handleRackInfoOpen={() => setOpenRackInfo(false)} 
+                trainLine={rackInfoData.trainLine}
+                lineColor={rackInfoData.lineColor}
+                name={rackInfoData.name} 
+                numberOfVacancies={rackInfoData.numberOfVacancies} 
+                maxNumberOfVacancies={rackInfoData.maxNumberOfVacancies} 
             />
             <ul className={styles.container}>
                 {trainLine.length > 0 && trainLine.map((trainLine) => (
                     <TrainLine 
                         key={trainLine.railwayLineId} 
-                        name={trainLine.name} 
+                        name={trainLine.name}
+                        lineColor={trainLine.color}
                         bikeRacks={trainLine.bikeRacks} 
-                        handleQRCodeOpen={handleQRCodeOpen} 
+                        handleRackInfoOpen={handleRackInfoOpen} 
                     />
                 ))}
                 {!removeLoading && <Loading />}
