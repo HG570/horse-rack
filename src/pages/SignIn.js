@@ -1,24 +1,16 @@
 import { Link } from 'react-router-dom'
 import styles from './SignIn.module.css'
-import Back from '../components/layout/Back'
+import LoginForm from '../components/forms/LoginForm'
 
 function SignIn() {
+
     return (
-        <>  
-            <Back />
+        <> 
             <section className={styles.access_menu}>
-                    <h1>Login</h1>
-                    <div>
-                    <label for="email">Email</label>
-                    <input type="email" placeholder="Email" id="email" name="email" />
-                    </div>
-                    <div>
-                    <label for="senha">Senha</label>
-                    <input type="password" placeholder="Senha" id="senha" name="senha" />
-                    <Link to='/forgotpassword'>Esqueci a senha</Link>
-                    </div>
-                    <button>Entrar</button>
+                <h1> Acessar Conta </h1>
+                    <LoginForm />
                     <Link to="/signup" className={styles.option}>Não Tenho Conta </Link>
+                    <Link to='/forgotpassword' className={styles.forgot}>Esqueci a senha</Link>
             </section>
         </>
     )

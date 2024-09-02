@@ -2,41 +2,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 32px 32px;
+    width: 100%;
+    gap: 16px;
 }
 .access_menu h1 {
     text-align: center;
-    margin: 0 0 38px 0;
+    margin: 0 0 22px 0;
 }
 
-.back svg{
-    margin: 32px 0 0 32px;
-    color: var(--red-cptm);
-    width: 40px;
-    height: auto;
-}
-
-.access_menu input{
-    height: 52px;
-    padding: 12px;
-    margin-top: 4px;
-    border-radius: 12px;
-    border-style: none;
-    outline: none ;
-    object-fit: cover;
-    transition:0.5s;
-    border: 2px solid var(--black);
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.access_menu button {
+.option {
     background-color: var(--red-cptm);
     box-sizing: border-box;
     overflow: hidden;
     transition: 0.5s;
     position: relative;
-    height: 52px;
+    height: 6.5dvh;
     color: var(--white);
     display: flex;
     justify-content: center;
@@ -49,32 +29,21 @@
     border-radius: 12px;
     width: 100%;
     font-size: 20px;
-    margin-bottom: 12px;
-}
-
-.access_menu div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-}
-
-.option {
     width: 100%;
-    background-color: var(--red-cptm);
-    box-sizing: border-box;
-    overflow: hidden;
-    transition: 0.5s;
-    position: relative;
+    text-decoration: none;
     flex-grow: 1;
     height: 6.5vh;
-    flex-basis: 100%;
-    color: var(--white);
-    padding: 3.75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    font-size: 125%; 
-    text-decoration: none;
     font-size: 20px;
+}
+
+.forgot {
+    all: unset;
+    text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .access_menu {
+
+        margin: 0 29.4811dvw;
+    }
 }
