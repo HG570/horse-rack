@@ -1,38 +1,58 @@
-import styles from './PersonalInfo.module.css'
-import Back from '../components/layout/Back'
+import styles from './PersonalInfo.module.css';
+import { useEffect, useState } from 'react';
+import { getUserProfile } from '../services/Profile';
 
 function PersonalInfo() {
-    const teste = 'Teste'
+    const [profile, setProfile] = useState(null);
+    const userId = localStorage.getItem('userId');
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const userProfile = await getUserProfile(userId);
+                setProfile(userProfile);
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+            }
+        };
+
+        fetchProfile();
+    }, [userId]);
+
+    if (!profile) {
+        return <p>Loading...</p>;
+    }
+
     return (
         <>
-            <Back />
             <section className={styles.container}>
                 <h2>Informações Pessoais</h2>
                 <ul>
                     <li>
                         <h4>Nome</h4>
-                        <p>{teste}</p>
+                        <p>{profile.name}</p>
                     </li>
                     <li>
                         <h4>Email</h4>
-                        <p>{teste}@gmail.com</p>
+                        <p>{profile.email}</p>
                     </li>
                     <li>
                         <h4>Documento</h4>
-                        <p>CPF 123.456.789-10</p>
+                        <p>{profile.document}</p>
                     </li>
                     <li>
                         <h4>Data de Nascimento</h4>
-                        <p>01/01/2000</p>
+                        <p>{new Date(`${profile.birthDate}T00:00:00`).toLocaleDateString()}</p>
                     </li>
                     <li>
                         <h4>Endereço</h4>
-                        <p>Rua {teste}, Nº {teste} - Bairro {teste}, Cidade {teste} - Estado {teste}, CEP {teste}</p>
+                        <p>
+                            {profile.addressDTO.address}, {profile.addressDTO.number} - Bairro {profile.addressDTO.neighborhood}, {profile.addressDTO.city} - {profile.addressDTO.state}, {profile.addressDTO.postalCode}
+                        </p>
                     </li>
                 </ul>
             </section>
             <section className={styles.politic}>
-                Consulte nossa <a>Política de Privacidade</a>.
+                Consulte nossa <a href="privacy">Política de Privacidade</a>.
             </section>
         </>
     )

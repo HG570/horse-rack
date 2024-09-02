@@ -1,10 +1,9 @@
 .container {
     background-color: var(--gray-cptm);
-    margin: 32px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 2dvh;
 }
 
 .container h2 {
@@ -38,4 +37,8 @@
 
 .politic a {
     text-decoration: underline;
+}
+
+main {
+    justify-content: start;
 }
