@@ -13,7 +13,6 @@ import PersonalInfo from './pages/PersonalInfo'
 import CitizenCyclist from './pages/CitizenCyclist'
 import Paracycles from './pages/Paracycles'
 import QRCodeVacancy from './components/layout/QRCodeVacancy'
-import ConnectionStatus from './components/toast/ConnectionStatus'
 
 function App() {
   const [isQRCodeOpen, setIsQRCodeOpen] = useState(false);
@@ -23,9 +22,8 @@ function App() {
 
   return (
     <div className="App">
-      <ConnectionStatus />
       <Router>
-        <QRCodeVacancy isOpen={isQRCodeOpen} onClose={handleCloseQRCode} onClick={false}/>
+        <QRCodeVacancy isOpen={isQRCodeOpen} onClose={handleCloseQRCode} onClick={false} />
         <header>
           <Routes>
             <Route path="/" element={<Header />} />
@@ -33,14 +31,14 @@ function App() {
             <Route path="/conta" element={<Header />} />
 
             <Route path="/ciclista-cidadao" element={<Header title="Ciclista Cidadão" />} />
-            <Route path="/paraciclos" element={<Header title="Paraciclos"/>} />
+            <Route path="/paraciclos" element={<Header title="Paraciclos" />} />
 
-            <Route path='/personal-info' element={<Header title="Dados Pessoais"/>} />
-            <Route path='/config' element={<Header title="Configurações"/>} />
+            <Route path='/personal-info' element={<Header title="Dados Pessoais" />} />
+            <Route path='/config' element={<Header title="Configurações" />} />
 
-            <Route path='/signin' element={<Header/>} />
-            <Route path='/signup' element={<Header/>} />
-            <Route path='/forgotpassword' element={<Header/>} />
+            <Route path='/signin' element={<Header />} />
+            <Route path='/signup' element={<Header />} />
+            <Route path='/forgotpassword' element={<Header />} />
           </Routes>
         </header>
         <main>
