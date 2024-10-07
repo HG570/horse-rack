@@ -29,7 +29,7 @@ export default function QRCodeVacancy({ isOpen, onClose }) {
 
     if (isOpen && profile) {
         return (
-            <section className={styles.background}onClick={onClose}>
+            <section className={styles.background} onClick={onClose}>
                 <section className={styles.qrcodeCard}>
                     <article className={styles.card}>
                         <h3>QR Code</h3>
@@ -50,8 +50,7 @@ export default function QRCodeVacancy({ isOpen, onClose }) {
                 </section>
             </section>
         );
-    } else if (isOpen && !profile){
-        
+    } else if (isOpen && !profile) {
     }
     return null;
 }

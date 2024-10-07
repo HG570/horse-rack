@@ -22,7 +22,7 @@ function TrainLine({ name, lineColor, bikeRacks, handleRackInfoOpen }) {
                         <BikeRack
                             key={bikeRack.bikeRackId}
                             name={bikeRack.name}
-                            numberOfVacancies={bikeRack.vacancies}
+                            numberOfVacancies={bikeRack.availableVacancies}
                             maxNumberOfVacancies={bikeRack.vacancies}
                             trainLine={name} 
                             lineColor={lineColor}
