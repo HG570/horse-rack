@@ -10,7 +10,7 @@ function SignIn() {
                 <h1> Acessar Conta </h1>
                     <LoginForm />
                     <Link to="/signup" className={styles.option}>Não Tenho Conta </Link>
-                    <Link to='/forgotpassword' className={styles.forgot}>Esqueci a senha</Link>
+                    <Link to='/esqueci-a-senha' className={styles.forgot}>Esqueci a senha</Link>
             </section>
         </>
     )
