@@ -1,0 +1,49 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 16px;
+}
+.form h1 {
+    text-align: center;
+    margin: 0 0 22px 0;
+}
+
+.option {
+    background-color: var(--red-cptm);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.5s;
+    position: relative;
+    height: 6.5dvh;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline:none;
+    border: none;
+    box-shadow: none;
+    color: var(--white);
+    cursor: pointer;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 20px;
+    width: 100%;
+    text-decoration: none;
+    flex-grow: 1;
+    height: 6.5vh;
+    font-size: 20px;
+}
+
+.forgot {
+    all: unset;
+    text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .form {
+
+        margin: 0 29.4811dvw;
+    }
+}

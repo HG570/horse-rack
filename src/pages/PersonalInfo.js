@@ -1,6 +1,7 @@
 import styles from './PersonalInfo.module.css';
 import { useEffect, useState } from 'react';
 import { getUserProfile } from '../services/Profile';
+import { Link } from 'react-router-dom'
 
 function PersonalInfo() {
     const [profile, setProfile] = useState(null);
@@ -50,6 +51,10 @@ function PersonalInfo() {
                         </p>
                     </li>
                 </ul>
+
+                <Link to="/atualizar-informacoes" className={styles.option}> 
+                    <h5>Atualizar Meus Dados</h5>
+                </Link>
             </section>
             <section className={styles.politic}>
                 Consulte nossa <a href="privacy">Política de Privacidade</a>.

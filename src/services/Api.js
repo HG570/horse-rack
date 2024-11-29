@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: `http://${window.location.hostname}:9090/bykerack`,
+    baseURL: `http://192.168.15.9:9090/bykerack`,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -23,6 +23,16 @@ export const post = async (endpoint, data, options = {}) => {
         return response.data;
     } catch (error) {
         console.error(`Failed to post to ${endpoint}:`, error);
+        throw error;
+    }
+};
+
+export const patch = async (endpoint, data, options = {}) => {
+    try {
+        const response = await api.patch(endpoint, data, options);
+        return response.data;
+    } catch (error) {
+        console.error(`Failed to patch to ${endpoint}:`, error);
         throw error;
     }
 };
