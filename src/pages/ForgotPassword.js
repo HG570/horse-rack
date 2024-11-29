@@ -6,8 +6,6 @@ function ForgotPassword() {
 
     return (
         <>
-
-            
                 <form className={styles.formForgot}>
                     <h1>Recuperação de Senha</h1>
                     <article>
