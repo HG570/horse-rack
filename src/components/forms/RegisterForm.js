@@ -163,6 +163,7 @@ function RegisterForm() {
                     <article>
                         <input type="text" id="postalCode" name="addressDTO.postalCode" value={formData.addressDTO.postalCode} onChange={handleChange} onBlur={handleCepBlur} required />
                         <label htmlFor="postalCode">CEP</label>
+                        {loadingCep && <p>Buscando endereço...</p>}
                     </article>
                     <article>
                         <input type="number" id="number" name="addressDTO.number" value={formData.addressDTO.number} onChange={handleChange} required />
