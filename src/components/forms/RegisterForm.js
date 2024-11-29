@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styles from './RegisterForm.module.css';
 import { signUp } from '../../services/User';
 import { useNavigate } from 'react-router-dom';
+import { fetchAddressByPostalCode } from '../../services/ViaCep'
 
 function RegisterForm() {
     const navigate = useNavigate();
@@ -36,6 +37,8 @@ function RegisterForm() {
     
     const [currentStep, setCurrentStep] = useState(1);
 
+    const [loadingCep, setLoadingCep] = useState(false);
+
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -53,6 +56,32 @@ function RegisterForm() {
                 ...prevState,
                 [name]: name === 'docType' ? documentTypeMapping[value] : value
             }));
+        }
+    };
+
+    const handleCepBlur = async () => {
+        const postalCode = formData.addressDTO.postalCode;
+        if (!postalCode) return;
+
+        setLoadingCep(true);
+        setError(null);
+
+        try {
+            const address = await fetchAddressByPostalCode(postalCode);
+            setFormData(prevState => ({
+                ...prevState,
+                addressDTO: {
+                    ...prevState.addressDTO,
+                    address: address.logradouro,
+                    neighborhood: address.bairro,
+                    city: address.localidade,
+                    state: address.uf
+                }
+            }));
+        } catch (error) {
+            setError('Falha ao buscar o endereço. Verifique o CEP.');
+        } finally {
+            setLoadingCep(false);
         }
     };
 
@@ -132,7 +161,7 @@ function RegisterForm() {
             {currentStep === 3 && (
                 <section>
                     <article>
-                        <input type="text" id="postalCode" name="addressDTO.postalCode" value={formData.addressDTO.postalCode} onChange={handleChange} required />
+                        <input type="text" id="postalCode" name="addressDTO.postalCode" value={formData.addressDTO.postalCode} onChange={handleChange} onBlur={handleCepBlur} required />
                         <label htmlFor="postalCode">CEP</label>
                     </article>
                     <article>
