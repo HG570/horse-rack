@@ -32,6 +32,7 @@
     flex-direction: column;
     padding: 2.25dvh 3.3334dvw;
     gap: 2.25dvh;
+    color: var(--black);
 }
 
 .station {
@@ -74,6 +75,7 @@
     flex-grow: 1;
     flex-basis: 100%;
     font-size: 14px;
+    color: var(--black);
 }
 
 .card button{
