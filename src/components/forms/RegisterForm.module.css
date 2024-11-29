@@ -16,6 +16,7 @@
 .formSignUp section article input{
     height: 6.5dvh;
     padding: 1.5dvh;
+    padding-bottom: 0.75dvh;
     border-radius: 8px;
     border-style: none;
     outline: none ;
