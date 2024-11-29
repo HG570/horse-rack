@@ -2,7 +2,7 @@ import TrainLine from '../components/layout/TrainLine';
 import styles from './BicycleRacks.module.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import RackInfo from '../components/layout/InfoRack';
+import InfoRack from '../components/layout/InfoRack';
 import Loading from '../components/common/loading/Loading';
 import { fetchBikeRacks } from '../services/BikeStationApi';
 
@@ -46,7 +46,7 @@ function BicycleRacks() {
     return (
         <>
             <h1 className={styles.title}>Vagas</h1>
-            <RackInfo
+            <InfoRack
                 infoOpen={openRackInfo} 
                 handleRackInfoOpen={() => setOpenRackInfo(false)} 
                 trainLine={rackInfoData.trainLine}
