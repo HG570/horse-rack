@@ -16,12 +16,11 @@
 .formSignUp section article input{
     height: 6.5dvh;
     padding: 1.5dvh;
+    padding-bottom: 0.75dvh;
     border-radius: 8px;
-    border-style: none;
     outline: none ;
     object-fit: cover;
     transition:0.5s;
-    border: 1.6px solid var(--dark-gray);
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -30,11 +29,9 @@
     height: 6.5dvh;
     padding: 1.5dvh;
     border-radius: 8px;
-    border-style: none;
     outline: none ;
     object-fit: cover;
     transition:0.5s;
-    border: 1.6px solid var(--dark-gray);
     overflow: hidden;
     box-sizing: border-box;
 }

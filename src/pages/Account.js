@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './Account.module.css'
-import { HiMiniArrowRightOnRectangle, HiSquare3Stack3D, HiMiniCog6Tooth, HiMiniDocumentText, HiMiniUserCircle } from "react-icons/hi2";
+import { HiMiniArrowRightOnRectangle, HiSquare3Stack3D, HiMiniCog6Tooth, HiMiniDocumentText, HiMiniUserCircle, HiMiniBell } from "react-icons/hi2";
 
 function Account() {
     return (
@@ -12,15 +12,19 @@ function Account() {
                 {localStorage.getItem('token') != null ?
                     (
                         <>
-                            <Link to="/personal-info" className={styles.option}>
+                            <Link to="/dados-pessoais" className={styles.option}>
                                 <HiMiniDocumentText />
                                 <h4>Dados Pessoais</h4>
                             </Link>
-                            <Link to="/config" className={styles.option}>
+                            <Link to="/minhas-bicicletas" className={styles.option}>
                                 <HiSquare3Stack3D />
                                 <h4>Vagas Ocupadas</h4>
                             </Link>
-                            <Link to="/config" className={styles.option}>
+                            <Link to="/notificacoes" className={styles.option}>
+                                <HiMiniBell />
+                                <h4>Notificações</h4>
+                            </Link>
+                            <Link to="/configuracoes" className={styles.option}>
                                 <HiMiniCog6Tooth />
                                 <h4>Configurações</h4>
                             </Link>
@@ -39,7 +43,7 @@ function Account() {
                                 <HiMiniUserCircle />
                                 <h4>Entrar na sua Conta</h4>
                             </Link>
-                            <Link to="/config" className={styles.option}>
+                            <Link to="/configuracoes" className={styles.option}>
                                 <HiMiniCog6Tooth />
                                 <h4>Configurações</h4>
                             </Link>

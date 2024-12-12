@@ -1,31 +1,46 @@
-.formForgot {
+.formSignUp section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
     width: 100%;
     gap: 16px
 }
 
-.formForgot article {
+.formSignUp section article {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.formForgot article input{
+.formSignUp section article input{
     height: 6.5dvh;
     padding: 1.5dvh;
+    padding-bottom: 0.75dvh;
     border-radius: 8px;
+    border-style: none;
     outline: none ;
     object-fit: cover;
     transition:0.5s;
+    border: 1.6px solid var(--dark-gray);
     overflow: hidden;
     box-sizing: border-box;
 }
 
-.formForgot article label{
+.formSignUp section article select{
+    height: 6.5dvh;
+    padding: 1.5dvh;
+    border-radius: 8px;
+    border-style: none;
+    outline: none ;
+    object-fit: cover;
+    transition:0.5s;
+    border: 1.6px solid var(--dark-gray);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.formSignUp section article label{
     position:absolute;
     display: flex;
     height: 3.5dvh;
@@ -33,7 +48,7 @@
     padding: 1.5dvh;
 }
 
-.formForgot button {
+.formSignUp section button {
     background-color: var(--red-cptm);
     box-sizing: border-box;
     overflow: hidden;
@@ -54,21 +69,28 @@
     font-size: 20px;
 }
 
-.formForgot div {
+.formSignUp section div {
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
 }
 
-.formForgot article input:focus ~ label,
-.formForgot article input:valid ~ label {
-    top: -1.7dvh;
+.formSignUp section article input:focus ~ label,
+.formSignUp section article input:valid ~ label {
+    top: -2dvh;
     font-size: 12px;
     color:#333;
 }
 
-@media screen and (min-width: 1024px) {
-    .formForgot {
-        margin: 0 29.4811dvw;
-    }
+.formSignUp section article select:focus ~ label,
+.formSignUp section article select:valid ~ label {
+    top: -2dvh;
+    font-size: 12px;
+    color:#333;
+}
+
+.birthDate {
+    top: -2dvh;
+    font-size: 12px;
+    color:#333;   
 }

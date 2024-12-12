@@ -16,14 +16,14 @@
 .formSignIn article input{
     height: 6.5dvh;
     padding: 1.5dvh;
+    padding-bottom: 0.75dvh;
     border-radius: 8px;
-    border-style: none;
     outline: none ;
     object-fit: cover;
     transition:0.5s;
-    border: 1.6px solid var(--dark-gray);
     overflow: hidden;
     box-sizing: border-box;
+    
 }
 
 .formSignIn article label{
@@ -52,7 +52,7 @@
     cursor: pointer;
     border-radius: 12px;
     width: 100%;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .formSignIn div {
@@ -65,5 +65,4 @@
 .formSignIn article input:valid ~ label {
     top: -1.7dvh;
     font-size: 12px;
-    color:#333;
 }

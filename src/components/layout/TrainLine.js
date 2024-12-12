@@ -9,10 +9,10 @@ function TrainLine({ name, lineColor, bikeRacks, handleRackInfoOpen }) {
     document.documentElement.style.setProperty(colorName, lineColor);
 
     return (
-        <li className={styles.vacancyList}>
+        <li className={styles.vacancyList} {...getToggleProps()}>
             <section className={`${styles.card} `} style={{backgroundColor: `${lineColor}`}}>
                 <h3>{name}</h3>
-                <button {...getToggleProps()}>
+                <button >
                     {isExpanded ? <HiChevronUp /> : <HiChevronDown />}
                 </button>
             </section>

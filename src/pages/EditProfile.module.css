@@ -1,11 +1,11 @@
-.access_menu {
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     gap: 16px;
 }
-.access_menu h1 {
+.form h1 {
     text-align: center;
     margin: 0 0 22px 0;
 }
@@ -24,6 +24,7 @@
     outline:none;
     border: none;
     box-shadow: none;
+    color: var(--white);
     cursor: pointer;
     border-radius: 12px;
     width: 100%;
@@ -32,7 +33,7 @@
     text-decoration: none;
     flex-grow: 1;
     height: 6.5vh;
-    font-size: 1.25rem;
+    font-size: 20px;
 }
 
 .forgot {
@@ -41,7 +42,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .access_menu {
+    .form {
 
         margin: 0 29.4811dvw;
     }
