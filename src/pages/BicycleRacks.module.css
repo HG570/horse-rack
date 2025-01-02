@@ -16,3 +16,9 @@
     margin: 0;
     width: 100%;
 }
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 29.4811dvw;
+    }
+}

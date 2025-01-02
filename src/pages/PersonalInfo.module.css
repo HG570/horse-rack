@@ -59,6 +59,15 @@
     text-decoration: none;
 }
 
-main {
-    justify-content: start;
+
+@media screen and (min-width: 576px) {
+    .page {
+        padding: 0 calc(29.4811dvw/2);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .page {
+        padding: 0 29.4811dvw;
+    }
 }
