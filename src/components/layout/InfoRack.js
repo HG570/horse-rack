@@ -14,10 +14,10 @@ function InfoRack({ infoOpen, handleRackInfoOpen, trainLine, lineColor, name, nu
                             <HiOutlineXMark />
                         </button>
                     </article>
-                    <article className={styles.data}>
-                        <article className={styles.station}>
+                    <article className={styles.stationName}>
                             <p>{name}</p>
-                        </article>
+                    </article>
+                    <article className={styles.data}>
                         <article className={styles.station}>
                             <p>Total de Vagas</p>
                             <p>{maxNumberOfVacancies} vagas</p>
@@ -26,7 +26,7 @@ function InfoRack({ infoOpen, handleRackInfoOpen, trainLine, lineColor, name, nu
                             <p>Vagas Disponíveis:</p>
                             <VacancieNumber number={numberOfVacancies} maxNumber={maxNumberOfVacancies}/>
                         </article>
-                        <ul>
+                        <ul className={styles.operation}>
                             <li>Funcionamento: Todos os Dias das 04:00 às 00:00</li>
                         </ul>
                     </article>
