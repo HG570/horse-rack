@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2dvh;
+    align-items: start;
+    text-align: start;
+    width: 100%;
+    gap: 8px;
+}

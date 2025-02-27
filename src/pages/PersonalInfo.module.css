@@ -1,10 +1,11 @@
 .container {
-    background-color: var(--gray-cptm);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     padding: 2dvh;
+    border: 2px solid var(--dark-gray);
 }
+
 
 .container h2 {
     text-align: center;
@@ -21,9 +22,8 @@
 }
 
 .container ul li p{
+    border: 1px solid var(--dark-gray);
     margin-top: 2px;
-    background-color: white;
-    border: none;
     border-radius: 6px;
     padding: 4px;
     font-size: 14px;
@@ -37,6 +37,26 @@
 
 .politic a {
     text-decoration: underline;
+}
+
+.option {
+    margin-top: 2dvh;
+    width: 100%;
+    background-color: var(--red-cptm);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.5s;
+    flex-grow: 1;
+    min-height: 5.5vh;
+    flex-basis: 100%;
+    color: var(--white);
+    padding: 3.75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 125%; 
+    text-decoration: none;
 }
 
 main {

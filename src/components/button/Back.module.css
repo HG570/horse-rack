@@ -1,11 +1,12 @@
 .back {
     all: unset;
-    align-items: start;
     padding: 0;
     width: 2.5rem;
     height: 2.5rem;
     position: absolute;
-    left: 5.556%;
+    top: 50%;
+    transform: translate(0, -50%);;
+    left: 3.375vh;
     cursor: pointer;
 }
 

@@ -13,6 +13,11 @@ import PersonalInfo from './pages/PersonalInfo'
 import CitizenCyclist from './pages/CitizenCyclist'
 import Paracycles from './pages/Paracycles'
 import QRCodeVacancy from './components/layout/QRCodeVacancy'
+import Settings from './pages/Settings'
+import AboutApp from './pages/AboutApp'
+import MyVacancies from './pages/MyVacancies'
+import EditProfile from './pages/EditProfile'
+import Accessibility from './pages/Accessibility'
 
 function App() {
   const [isQRCodeOpen, setIsQRCodeOpen] = useState(false);
@@ -29,16 +34,18 @@ function App() {
             <Route path="/" element={<Header />} />
             <Route path="/bicicletarios" element={<Header />} />
             <Route path="/conta" element={<Header />} />
-
+            <Route path='/notificacoes' element={<Header title="Notificações" />} />
             <Route path="/ciclista-cidadao" element={<Header title="Ciclista Cidadão" />} />
             <Route path="/paraciclos" element={<Header title="Paraciclos" />} />
-
-            <Route path='/personal-info' element={<Header title="Dados Pessoais" />} />
-            <Route path='/config' element={<Header title="Configurações" />} />
-
+            <Route path='/minhas-bicicletas' element={<Header title="Vagas Ocupadas" />} />
+            <Route path='/dados-pessoais' element={<Header title="Dados Pessoais" />} />
+            <Route path='/configuracoes' element={<Header title="Configurações" />} />
+            <Route path='/acessibilidade' element={<Header title="Acessibilidade" />} />
+            <Route path='/sobre' element={<Header />} />
             <Route path='/signin' element={<Header />} />
             <Route path='/signup' element={<Header />} />
-            <Route path='/forgotpassword' element={<Header />} />
+            <Route path='/atualizar-informacoes' element={<Header />} />
+            <Route path='/esqueci-a-senha' element={<Header />} />
           </Routes>
         </header>
         <main>
@@ -46,12 +53,16 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/notificacoes" element={<Notifications />} />
             <Route path="/conta" element={<Account />} />
+            <Route path='/configuracoes' element={<Settings />} />
 
-            <Route path='/personal-info' element={<PersonalInfo />} />
+            <Route path='/minhas-bicicletas' element={<MyVacancies />} />
+            <Route path='/sobre' element={<AboutApp />} />
+            <Route path='/dados-pessoais' element={<PersonalInfo />} />
             <Route path='/signin' element={<SignIn />} />
+            <Route path='/atualizar-informacoes' element={<EditProfile />} />
             <Route path='/signup' element={<SignUp />} />
-            <Route path='/forgotpassword' element={<ForgotPassword />} />
-
+            <Route path='/esqueci-a-senha' element={<ForgotPassword />} />
+            <Route path="/acessibilidade" element={<Accessibility />} />
             <Route path="/bicicletarios" element={<BicycleRacks />} />
             <Route path='/ciclista-cidadao' element={<CitizenCyclist />} />
             <Route path='/paraciclos' element={<Paracycles />} />

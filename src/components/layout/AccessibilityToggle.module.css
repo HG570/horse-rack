@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    gap: 24px;
+}
+.adjust {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.select{
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.5s;
+    position: relative;
+    padding: 1.5dvh;
+    min-height: 6.5dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline:none;
+    box-shadow: none;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 20px;
+    appearance: none;
+}
+
+.selectInput {
+    display: flex;
+    position: relative;
+}
+
+.selectButton {
+    all: unset;
+    position: absolute;
+    top: 1.2dvh;
+    right: 1.5dvh;
+    display: flex;
+    pointer-events: none;
+}
+
+.selectButton svg {
+    width: 32px;
+    height: auto;
+}

@@ -17,6 +17,13 @@ function InfoRack({ infoOpen, handleRackInfoOpen, trainLine, lineColor, name, nu
                     <article className={styles.data}>
                         <article className={styles.station}>
                             <p>{name}</p>
+                        </article>
+                        <article className={styles.station}>
+                            <p>Total de Vagas</p>
+                            <p>{maxNumberOfVacancies} vagas</p>
+                        </article>
+                        <article className={styles.station}>
+                            <p>Vagas Disponíveis:</p>
                             <VacancieNumber number={numberOfVacancies} maxNumber={maxNumberOfVacancies}/>
                         </article>
                         <ul>
