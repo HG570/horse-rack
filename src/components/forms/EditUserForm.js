@@ -67,7 +67,7 @@ function EditUserForm() {
     }, [userId]);
 
     if (!profile) {
-        return <div>Carregando...</div>; // Ou algum indicador de carregamento
+        return <div>Carregando...</div>;
     }
 
     
@@ -129,7 +129,6 @@ function EditUserForm() {
         try {
             await updateUserProfile(formData);
             alert('Informações atualizadas com sucesso!');
-            // Redirecionar ou limpar o formulário após o sucesso
         } catch (error) {
             setError('Falha ao realizar o cadastro. Tente novamente.');
             event.preventDefault();
@@ -211,7 +210,35 @@ function EditUserForm() {
                         <label htmlFor="city">Cidade</label>
                     </article>
                     <article>
-                        <input type="text" id="state" name="addressDTO.state" value={formData.addressDTO.state} onChange={handleChange} required />
+                        <select list="states" id="state" name="addressDTO.state" value={formData.addressDTO.state} onChange={handleChange} required>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
                         <label htmlFor="state">Estado</label>
                     </article>
                     <p>Ao atualizar seus dados, você concorda com nossos Termos, Política de Privacidade e Política de Cookies.</p>

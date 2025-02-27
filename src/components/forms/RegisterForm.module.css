@@ -13,21 +13,11 @@
     width: 100%;
 }
 
-.formSignUp section article input{
+.formSignUp section article input, section article select{
+    width: 100%;
     height: 6.5dvh;
     padding: 1.5dvh;
     padding-bottom: 0.75dvh;
-    border-radius: 8px;
-    outline: none ;
-    object-fit: cover;
-    transition:0.5s;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.formSignUp section article select{
-    height: 6.5dvh;
-    padding: 1.5dvh;
     border-radius: 8px;
     outline: none ;
     object-fit: cover;

@@ -31,7 +31,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 2.25dvh 3.3334dvw;
-    gap: 2.25dvh;
+    gap: 10px;
 }
 
 .station {
@@ -47,7 +47,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.75%;
 }
 
 .data svg {
@@ -67,7 +66,7 @@
 
 }
 
-.data ul li{
+.operation li{
     overflow: hidden;
     transition: 0.5s;
     position: relative;
@@ -85,15 +84,15 @@
     background-color: transparent;
     color: var(--white);
     border-radius: 10px;
-    width: 10dvw;
-    height: 10dvw;
+    width: 3dvh;
+    height: 3dvh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
 }
 
 .card svg{
- 
     width: 100%;
     height: auto;
 }
@@ -114,4 +113,29 @@
     left: 50%;
     top:50%;
     transform: translate(-50%, -50%);
+}
+
+.stationName {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.5s;
+    position: relative;
+    flex-grow: 1;
+    height: 6.5vh;
+    flex-basis: 100%;
+    color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.25dvh 3.3334dvw;
+    border-bottom: 1px solid var(--black);
+    font-weight: var(--semiBold);
+}
+
+@media screen and (min-width: 1024px) {
+    .qrcodeCard {
+        width: auto;
+        margin: 0 29.4811dvw;
+    }
 }

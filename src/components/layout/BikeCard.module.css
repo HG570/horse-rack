@@ -2,6 +2,37 @@
     display: flex;
     border-radius: 12px;
     flex-direction: column;
-    background-color: var(--cptm);
-    padding: 10px;
+    background-color: var(--header-color-light);
+    padding: 1.25dvh;
+    gap: 0.625dvh;
+}
+
+.title {
+    text-align: center;
+    border-bottom: 2px solid var(--text-color-light);
+    padding-bottom: 0.75dvh;
+}
+
+.subtitle {
+    text-align: center;
+    margin: 0.625dvh 0;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25dvh;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.data div {
+    display: flex;
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: 6px 14px;
 }

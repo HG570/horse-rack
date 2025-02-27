@@ -3,4 +3,5 @@
     flex-direction: column;
     width: 100%;
     gap: 16px;
+    align-items: center;
 }
