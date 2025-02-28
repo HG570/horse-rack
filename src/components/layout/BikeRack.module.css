@@ -26,8 +26,8 @@
     margin-left: 3.334dvw;
     color: var(--dark-gray);
     border-radius: 10px;
-    width: 10dvw;
-    height: 10dvw;
+    width: 4.5dvh;
+    height: 4.5dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,12 @@
 }
 
 .stationCard svg{
- 
     width: 100%;
     height: auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .stationCard button{
+        margin-left: calc(3.334dvw/3);
+    }
 }
