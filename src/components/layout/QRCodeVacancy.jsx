@@ -1,6 +1,6 @@
 import styles from './QRCodeVacancy.module.css';
 import { useEffect, useState } from 'react';
-import { getUserProfile } from '../../services/Profile';
+import { getUser } from '../../services/User';
 import { HiOutlineXMark } from 'react-icons/hi2';
 import QRCodeGenerator from '../utils/QRCodeGenerator';
 
@@ -11,7 +11,7 @@ export default function QRCodeVacancy({ isOpen, onClose }) {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const userProfile = await getUserProfile(userId);
+                const userProfile = await getUser(userId);
                 if (userProfile) {
                     setProfile(userProfile);
                 } else {
