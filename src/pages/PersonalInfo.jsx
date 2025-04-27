@@ -1,7 +1,8 @@
 import styles from './PersonalInfo.module.css';
 import { useEffect, useState } from 'react';
-import { getUserProfile } from '../services/Profile';
+import { getUser } from '../services/User';
 import { Link } from 'react-router-dom'
+import Loading from "../components/common/loading/Loading"
 
 function PersonalInfo() {
     const [profile, setProfile] = useState(null);
@@ -9,7 +10,7 @@ function PersonalInfo() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const userProfile = await getUserProfile(userId);
+                const userProfile = await getUser(userId);
                 setProfile(userProfile);
             } catch (error) {
                 console.error('Error fetching profile:', error);
@@ -20,7 +21,7 @@ function PersonalInfo() {
     }, [userId]);
 
     if (!profile) {
-        return <p>Loading...</p>;
+        return <Loading/>;
     }
 
     return (

@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import styles from './EditUserForm.module.css'
 import { useNavigate } from 'react-router-dom'
 import { fetchAddressByPostalCode } from '../../services/ViaCep'
-import { getUserProfile } from '../../services/Profile';
-import { updateUserProfile } from '../../services/UpdateProfile';
+import { getUser, updateUser } from '../../services/User';
 function EditUserForm() {
     const navigate = useNavigate();
     const [profile, setProfile] = useState(null);
@@ -39,7 +38,7 @@ function EditUserForm() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const userProfile = await getUserProfile(userId);
+                const userProfile = await getUser(userId);
                 setProfile(userProfile);
                 setFormData(prevState => ({
                     ...prevState,
@@ -127,7 +126,7 @@ function EditUserForm() {
 
     const handleSubmit = async (event) => {
         try {
-            await updateUserProfile(formData);
+            await updateUser(formData);
             alert('Informações atualizadas com sucesso!');
         } catch (error) {
             setError('Falha ao realizar o cadastro. Tente novamente.');
