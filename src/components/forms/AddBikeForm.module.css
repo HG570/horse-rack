@@ -1,19 +1,20 @@
-.formSignIn {
+.formBike{
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    gap: 16px;
+    gap: 16px
 }
 
-.formSignIn article {
+.formBike article {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.formSignIn article input{
+.formBike article input, article select{
+    width: 100%;
     height: 6.5dvh;
     padding: 1.5dvh;
     padding-bottom: 0.75dvh;
@@ -23,10 +24,9 @@
     transition:0.5s;
     overflow: hidden;
     box-sizing: border-box;
-    border: 1.6px  solid var(--border-color);
 }
 
-.formSignIn article label{
+.formBike article label{
     position:absolute;
     display: flex;
     height: 3.5dvh;
@@ -35,7 +35,7 @@
     color: var(--border-color);
 }
 
-.formSignIn button {
+.formBike button {
     background-color: var(--red-cptm);
     box-sizing: border-box;
     overflow: hidden;
@@ -52,17 +52,25 @@
     cursor: pointer;
     border-radius: 12px;
     width: 100%;
-    font-size: 1.25rem;
+    font-size: 20px;
 }
 
-.formSignIn div {
+.formBike div {
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
 }
 
-.formSignIn article input:focus ~ label,
-.formSignIn article input:valid ~ label {
-    top: -1.7dvh;
+.formBike article input:focus ~ label,
+.formBike article input:valid ~ label {
+    top: -2dvh;
     font-size: 12px;
+    color:var(--border-color);
+}
+
+.formBike article select:focus ~ label,
+.formBike article select:valid ~ label {
+    top: -2dvh;
+    font-size: 12px;
+    color:var(--border-color);
 }

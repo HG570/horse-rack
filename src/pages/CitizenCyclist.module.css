@@ -14,8 +14,15 @@
 }
 
 .citizenObservation{
+    display: flex;
+    flex-direction: column;
     font-size: 0.666666rem;
     margin-bottom: 10dvh;
+    gap: 8px;
+    color: var(--text-color);
+}
+p {
+    color: var(--text-color);
 }
 
 .citizenList{
@@ -31,9 +38,20 @@
 
 .title {
     width: 100%;
+    color: var(--text-color);
 }
 
 .title h1{
     text-align: center;
     font-size: larger;
+}
+
+@media screen and (min-width: 1024px) {
+    .citizenObservation {
+        margin: 0 29.4811dvw;
+    }
+    .citizenList{
+        padding-left: 1dvw;
+        font-size: 0.8rem;
+    }
 }

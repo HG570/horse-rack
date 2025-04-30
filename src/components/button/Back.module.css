@@ -14,4 +14,7 @@
     color: var(--red-cptm);
     width: 100%;
     height: auto;
+    background-color: var(--white);
+    border-radius: 100px;
+    border: 1.6px solid var(--white);
 }

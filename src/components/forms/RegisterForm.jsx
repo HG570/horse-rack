@@ -1,76 +1,31 @@
-import { useState, useEffect } from 'react'
-import styles from './EditUserForm.module.css'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import styles from './RegisterForm.module.css';
+import { signUp } from '../../services/User';
+import { useNavigate } from 'react-router-dom';
 import { fetchAddressByPostalCode } from '../../services/ViaCep'
-import { getUserProfile } from '../../services/Profile';
-import { updateUserProfile } from '../../services/UpdateProfile';
-function EditUserForm() {
+
+function RegisterForm() {
     const navigate = useNavigate();
-    const [profile, setProfile] = useState(null);
-    
-
-    const [error, setError] = useState(null);
-    
-    const [currentStep, setCurrentStep] = useState(1);
-
-    const [loadingCep, setLoadingCep] = useState(false);
-
-    const userId = localStorage.getItem('userId');
     const [formData, setFormData] = useState({
-        name: '',
-        docType: '',
-        document: '',
-        birthDate: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
+        name: null,
+        docType: null,
+        document: null,
+        birthDate: null,
+        email: null,
+        password: null,
+        confirmPassword: null,
         addressDTO: {
-            address: '',
-            number: '',
-            neighborhood: '',
-            city: '',
-            state: '',
-            postalCode: '',
-            complement: ''
+            address: null,
+            number: null,
+            neighborhood: null,
+            city: null,
+            state: null,
+            postalCode: null,
+            complement: null
         }
     });
-    
 
-    useEffect(() => {
-        const fetchProfile = async () => {
-            try {
-                const userProfile = await getUserProfile(userId);
-                setProfile(userProfile);
-                setFormData(prevState => ({
-                    ...prevState,
-                    name: userProfile.name || '',
-                    email: userProfile.email || '',
-                    docType: userProfile.docType || '',
-                    document: userProfile.document || '',
-                    birthDate: userProfile.birthDate || '',
-                    addressDTO: userProfile.addressDTO || {
-                        address: userProfile.addressDTO.address,
-                        number: userProfile.addressDTO.number,
-                        neighborhood: userProfile.addressDTO.neighborhood,
-                        city: userProfile.addressDTO.city,
-                        state: userProfile.addressDTO.state,
-                        postalCode: userProfile.addressDTO.postalCode,
-                        complement: userProfile.addressDTO.complement
-                    }
-                }));
-            } catch (error) {
-                console.error('Error fetching profile:', error);
-            }
-        };
-
-        fetchProfile();
-    }, [userId]);
-
-    if (!profile) {
-        return <div>Carregando...</div>;
-    }
-
-    
     const documentTypeMapping = {
         "RG": 1,
         "CPF": 2,
@@ -78,6 +33,12 @@ function EditUserForm() {
         "PASSAPORTE": 4,
         "CRNM": 5
     };
+
+    const [error, setError] = useState(null);
+
+    const [currentStep, setCurrentStep] = useState(1);
+
+    const [loadingCep, setLoadingCep] = useState(false);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -127,22 +88,26 @@ function EditUserForm() {
 
     const handleSubmit = async (event) => {
         try {
-            await updateUserProfile(formData);
-            alert('Informações atualizadas com sucesso!');
+            await signUp(formData);
+            alert('Cadastro realizado com sucesso!');
         } catch (error) {
             setError('Falha ao realizar o cadastro. Tente novamente.');
+            alert('Falha ao realizar o cadastro. Tente novamente.');
             event.preventDefault();
         }
     };
 
     const goToNextStep = () => {
         setError(null)
-        if (formData.name === null && formData.email === null && formData.password === null) {
+        if (formData.password !== formData.confirmPassword) {
+            setError('As senhas não coincidem.');
+            return;
+        } else if (formData.name === null && formData.email === null && formData.password === null) {
             setError('Você deve inserir todos os dados.');
-        } else if (currentStep===2 && formData.docType === null && formData.document === null && formData.birthDate === '') {
+        } else if (currentStep === 2 && formData.docType === null && formData.document === null && formData.birthDate === '') {
             setError('Você deve inserir todos os dados.');
         } else {
-        setCurrentStep(prevStep => prevStep + 1);
+            setCurrentStep(prevStep => prevStep + 1);
         }
     };
 
@@ -158,6 +123,14 @@ function EditUserForm() {
                         <input type="text" id="email" name="email" value={formData.email} onChange={handleChange} required />
                         <label htmlFor="email">E-mail</label>
                     </article>
+                    <article>
+                        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                        <label htmlFor="password">Senha</label>
+                    </article>
+                    <article>
+                        <input type="password" id="confirm-senha" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
+                        <label htmlFor="confirm-senha">Confirme a senha</label>
+                    </article>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     <button type="button" onClick={goToNextStep}>Próxima Etapa</button>
                 </section>
@@ -166,7 +139,6 @@ function EditUserForm() {
                 <section>
                     <article>
                         <select list="documents" id="documentType" name="docType" value={Object.keys(documentTypeMapping).find(key => documentTypeMapping[key] === formData.docType) || ''} onChange={handleChange} required >
-
                             <option value="RG">RG</option>
                             <option value="CPF">CPF</option>
                             <option value="CNH">CNH</option>
@@ -211,6 +183,7 @@ function EditUserForm() {
                     </article>
                     <article>
                         <select list="states" id="state" name="addressDTO.state" value={formData.addressDTO.state} onChange={handleChange} required>
+                            <option value="" disabled>Selecione um estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
                             <option value="AP">Amapá</option>
@@ -241,13 +214,13 @@ function EditUserForm() {
                         </select>
                         <label htmlFor="state">Estado</label>
                     </article>
-                    <p>Ao atualizar seus dados, você concorda com nossos Termos, Política de Privacidade e Política de Cookies.</p>
+                    <p>Ao criar uma conta, você concorda com nossos <Link to="/politica-privacidade">Termos, Política de Privacidade e Política de Cookies.</Link></p>
 
-                    <button onClick={() => { handleSubmit(); navigate('/dados-pessoais'); }}>Atualizar Dados da Conta</button>
+                    <button onClick={() => { handleSubmit(); navigate('/minhas-bicicletas'); }}>Criar Conta</button>
                 </section>
             )}
         </form>
     )
 }
 
-export default EditUserForm;
+export default RegisterForm;

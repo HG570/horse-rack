@@ -3,7 +3,7 @@
     border-radius: 12px;
     box-shadow: 0px 2px 4px 0px rgba(0,0,0, 0.25);
     position: absolute;
-    background: var(--white);
+    background-color: var(--card-background-color);
     z-index: 2;
 }
 
@@ -73,6 +73,7 @@
     flex-grow: 1;
     flex-basis: 100%;
     font-size: 14px;
+    color: var(--text-color-dark);
 }
 
 .card button{
@@ -124,7 +125,7 @@
     flex-grow: 1;
     height: 6.5vh;
     flex-basis: 100%;
-    color: var(--black);
+    color: var(--text-color);
     display: flex;
     justify-content: space-between;
     align-items: center;

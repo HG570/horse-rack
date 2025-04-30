@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from './Account.module.css'
 import { HiMiniArrowRightOnRectangle, HiSquare3Stack3D, HiMiniCog6Tooth, HiMiniDocumentText, HiMiniUserCircle, HiMiniBell } from "react-icons/hi2";
+import { MdPedalBike } from "react-icons/md";
 
 function Account() {
     return (
@@ -17,6 +18,10 @@ function Account() {
                                 <h4>Dados Pessoais</h4>
                             </Link>
                             <Link to="/minhas-bicicletas" className={styles.option}>
+                                <MdPedalBike />
+                                <h4>Suas Bicicletas</h4>
+                            </Link>
+                            <Link to="/vagas-ocupadas" className={styles.option}>
                                 <HiSquare3Stack3D />
                                 <h4>Vagas Ocupadas</h4>
                             </Link>

@@ -1,9 +1,37 @@
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
 import { HiMiniHome, HiOutlineQrCode, HiMiniUser } from 'react-icons/hi2'
+import { getBicycles } from "../../services/Bicycle"
 
-function Navbar({ onOpenQRCode, onClose }) {
+
+function Navbar({ onOpenQRCode, myBicycles, onClose }) {
     const navigate = useNavigate()
+
+    const handleQRCodeClick = async () => {
+        const token = localStorage.getItem('token')
+        if (!token) {
+            navigate('/signin')
+            return
+        }
+
+        const userId = localStorage.getItem('userId')
+        if (!userId) {
+            navigate('/signin')
+            return
+        }
+
+        try {
+            const bikes = await getBicycles(userId)
+            if (bikes && bikes.length > 0) {
+                onOpenQRCode()
+                myBicycles(bikes)
+            } else {
+                navigate('/minhas-bicicletas')
+            }
+        } catch (error) {
+            navigate('/minhas-bicicletas')
+        }
+    }
     return (
         <>
             <section className={styles.background_navbar}>
@@ -15,7 +43,7 @@ function Navbar({ onOpenQRCode, onClose }) {
                         </Link>
                     </li>
                     <li>
-                        <button onClick={() => {localStorage.getItem('token') != null ? onOpenQRCode() : navigate('/signin')}}>
+                        <button onClick={handleQRCodeClick}>
                             <HiOutlineQrCode />
                             QRCode
                         </button>

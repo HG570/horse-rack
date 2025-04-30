@@ -1,6 +1,6 @@
-import styles from "./BikeCard.module.css"
+import styles from "./VacancyDetailCard.module.css"
 
-function BikeCard({ bikeRack, railwayLine, entryDate, attendant }) {
+function VacancyDetailCard({ bikeRack, railwayLine, entryDate, attendant }) {
     const formatDateTime = (dateTimeString) => {
         const date = new Date(dateTimeString);
 
@@ -37,4 +37,4 @@ function BikeCard({ bikeRack, railwayLine, entryDate, attendant }) {
     );
 }
 
-export default BikeCard;
+export default VacancyDetailCard;

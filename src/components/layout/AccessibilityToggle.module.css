@@ -4,6 +4,7 @@
     flex-direction: column;
     position: relative;
     gap: 24px;
+    color: var(--text-color);
 }
 .adjust {
     display: flex;

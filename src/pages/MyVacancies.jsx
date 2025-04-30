@@ -1,7 +1,8 @@
 import styles from "./MyVacancies.module.css"
 import { getMyVacancy } from "./../services/MyVacancy"
 import { useEffect, useState } from 'react';
-import BikeCard from "../components/layout/BikeCard";
+import VacancyDetailCard from "../components/layout/VacancyDetailCard";
+import Loading from "../components/common/loading/Loading"
 
 function MyVacancies() {
     const [vacancy, setVacancy] = useState(null);
@@ -22,7 +23,7 @@ function MyVacancies() {
     }, [userId]);
 
     if (vacancy === null) {
-        return <p>Loading...</p>;
+        return <Loading/>;
     }
 
     const isVacancyEmpty = !vacancy.bikeRack && !vacancy.entryDate && !vacancy.attendant;
@@ -31,9 +32,11 @@ function MyVacancies() {
         <>
             <div className={styles.cards}>
                 {isVacancyEmpty ? (
-                    <p>Não há bicicletários cadastrados.</p>
+                    <div>
+                        <p>Não há vagas ocupadas no momento.</p>
+                    </div>
                 ) : (
-                    <BikeCard
+                    <VacancyDetailCard
                         bikeRack={vacancy.bikeRack?.name}
                         railwayLine={vacancy.bikeRack?.railwayLine}
                         entryDate={vacancy.entryDate}

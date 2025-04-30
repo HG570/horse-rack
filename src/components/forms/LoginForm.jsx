@@ -16,11 +16,9 @@ function LoginForm() {
             const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i;
             if (emailRegex.test(email)) {
                 setError('E-mail inválido.');
-                console.log('erro email');
                 
             } else if (password.length < 8) {
                 setError('A senha que você inseriu está incorreta.');
-                console.log('erro password');
             } else if (error.length <= 0) {
 
                 try {
@@ -33,12 +31,10 @@ function LoginForm() {
                 } catch (error) {
                     console.error('Authentication failed:', error);
                     setError('Falha ao fazer login. Verifique suas credenciais.');
-                    console.log('erro credentials');
                 }
             }
         } else {
             setError('Insira todos os dados para fazer login.');
-            console.log('erro dados');
         }
         
     }

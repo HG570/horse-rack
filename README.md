@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Sistema de Automação dos Bicicletários para a Companhia Paulista de Trens Metropolitanos (CPTM)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositório contém o código-fonte do **Horse-rack**, um sistema web desenvolvido com React.js para automatizar o controle de bicicletários das estações da CPTM. O projeto foi idealizado e prototipado durante o **Hackathon Fatec Cotia e CPTM**, realizado em agosto de 2023.
 
-## Available Scripts
+## 🚀 Funcionalidades
 
-In the project directory, you can run:
+- ✅ Exibição em tempo real de vagas dos bicicletários
+- ✅ Cadastro, login, edição e exibição de usuários
+- ✅ Cadastro, edição, exibição e exclusão de bicicletas
+- ✅ Exibição de QR Code para entrada no bicicletário
+- ✅ Visualização das vagas ocupadas e limites por bicicletário
+- ✅ Informativos sobre o programa Ciclista Cidadão e paraciclos
+- ✅ Temas claro e escuro
+- ✅ Acessibilidade com alteração de tamanho de fonte
 
-### `npm start`
+## 👥 Contribuintes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Murilo Goivino Tegani  
+- Rafael Pinheiro
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🎓 Orientadores
 
-### `npm test`
+- Meg Lima Andrade  
+- Vickybert Pessoa Freire
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🔧 Tecnologias Utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [React.js](https://reactjs.org/) com [Vite](https://vitejs.dev/)
+- JavaScript
+- Estilização com CSS
+- Integração com API via variáveis de ambiente
+- Compatível com **Node.js v22.14.0**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Instalação
 
-### `npm run eject`
+Siga os passos abaixo para executar o projeto localmente:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Clone o repositório
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/HG570/horse-rack.git
+cd horse-rack
+```
+### 2. Instale as dependências
+```bash
+npm install
+```
+### 3. Configure as variáveis de ambiente
+Crie um arquivo .env na raiz do projeto com a seguinte variável:
+```bash
+VITE_API_URL=https://sua-api.com
+```
+> Essa variável é usada para configurar a URL base da API que será consumida pelo sistema.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Inicie o projeto
+```bash
+npm run dev
+```
+Acesse o sistema em http://localhost:5173.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📁 Estrutura de Pastas
+```
+HORSE-RACK/
+├── node_modules/          # Dependências do Node.js
+├── public/                # Arquivos públicos (HTML, imagens)
+├── src/                   # Código-fonte principal
+│   ├── components/        # Componentes reutilizáveis
+│   │   ├── button/        # Botões
+│   │   ├── common/        # Componentes comuns
+│   │   ├── forms/         # Formulários
+│   │   ├── layout/        # Layouts
+│   │   ├── utils/         # Utilitários
+│   ├── contexts/          # Contextos do React
+│   ├── img/               # Imagens usadas no projeto
+│   ├── pages/             # Páginas da aplicação
+│   ├── services/          # Serviços e chamadas de API
+│   ├── App.jsx            # Componente raiz da aplicação
+│   ├── index.css          # Estilos globais
+│   ├── index.jsx          # Ponto de entrada do React
+├── .env                   # Variáveis de ambiente
+├── .gitignore             # Arquivos ignorados pelo Git
+├── index.html             # Página HTML principal
+├── package-lock.json      # Registro de dependências do npm
+├── package.json           # Configurações e dependências do projeto
+├── README.md              # Documentação principal do projeto
+├── vite.config.js         # Configuração do Vite
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 Licença
+Este projeto é acadêmico, desenvolvido exclusivamente para parceria entre Fatec Cotia e CPTM.

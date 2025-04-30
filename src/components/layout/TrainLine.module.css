@@ -9,6 +9,7 @@
     flex-grow: 1;
     flex-basis: 100%;
     color: var(--white);
+    background-color: var(--card-background-color);
 }
 
 .vacancyList section ul {
