@@ -18,17 +18,18 @@ import AboutApp from './pages/AboutApp'
 import MyVacancies from './pages/MyVacancies'
 import EditProfile from './pages/EditProfile'
 import Accessibility from './pages/Accessibility'
+import MyBikes from './pages/MyBikes'
 
 function App() {
   const [isQRCodeOpen, setIsQRCodeOpen] = useState(false);
-
+  const [myBikes, setMyBikes] = useState();
   const handleOpenQRCode = () => setIsQRCodeOpen(true);
   const handleCloseQRCode = () => setIsQRCodeOpen(false);
 
   return (
     <div className="App">
       <Router>
-        <QRCodeVacancy isOpen={isQRCodeOpen} onClose={handleCloseQRCode} onClick={false} />
+        <QRCodeVacancy isOpen={isQRCodeOpen} bicycles={myBikes} onClose={handleCloseQRCode} onClick={false} />
         <header>
           <Routes>
             <Route path="/" element={<Header />} />
@@ -37,7 +38,8 @@ function App() {
             <Route path='/notificacoes' element={<Header title="Notificações" />} />
             <Route path="/ciclista-cidadao" element={<Header title="Ciclista Cidadão" />} />
             <Route path="/paraciclos" element={<Header title="Paraciclos" />} />
-            <Route path='/minhas-bicicletas' element={<Header title="Vagas Ocupadas" />} />
+            <Route path='/minhas-bicicletas' element={<Header title="Minhas Bicicletas" />} />
+            <Route path='/vagas-ocupadas' element={<Header title="Vagas Ocupadas" />} />
             <Route path='/dados-pessoais' element={<Header title="Dados Pessoais" />} />
             <Route path='/configuracoes' element={<Header title="Configurações" />} />
             <Route path='/acessibilidade' element={<Header title="Acessibilidade" />} />
@@ -54,8 +56,8 @@ function App() {
             <Route path="/notificacoes" element={<Notifications />} />
             <Route path="/conta" element={<Account />} />
             <Route path='/configuracoes' element={<Settings />} />
-
-            <Route path='/minhas-bicicletas' element={<MyVacancies />} />
+            <Route path='/minhas-bicicletas' element={<MyBikes />} />
+            <Route path='/vagas-ocupadas' element={<MyVacancies />} />
             <Route path='/sobre' element={<AboutApp />} />
             <Route path='/dados-pessoais' element={<PersonalInfo />} />
             <Route path='/signin' element={<SignIn />} />
@@ -69,7 +71,7 @@ function App() {
           </Routes>
         </main>
         <footer>
-          <Navbar onOpenQRCode={handleOpenQRCode} onClose={handleCloseQRCode} />
+          <Navbar onOpenQRCode={handleOpenQRCode} myBicycles={setMyBikes} onClose={handleCloseQRCode} />
         </footer>
       </Router>
     </div>

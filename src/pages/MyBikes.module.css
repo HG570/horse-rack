@@ -1,0 +1,42 @@
+.button {
+    background-color: var(--red-cptm);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.5s;
+    position: relative;
+    height: 6.5dvh;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline:none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 10dvh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 16px;
+}
+
+@media screen and (min-width: 1024px) {
+    .form {
+        margin: 0 29.4811dvw;
+    }
+}
