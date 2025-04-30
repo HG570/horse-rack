@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './RegisterForm.module.css';
 import { signUp } from '../../services/User';
 import { useNavigate } from 'react-router-dom';
@@ -213,9 +214,9 @@ function RegisterForm() {
                         </select>
                         <label htmlFor="state">Estado</label>
                     </article>
-                    <p>Ao criar uma conta, você concorda com nossos Termos, Política de Privacidade e Política de Cookies.</p>
+                    <p>Ao criar uma conta, você concorda com nossos <Link to="/politica-privacidade">Termos, Política de Privacidade e Política de Cookies.</Link></p>
 
-                    <button onClick={() => { handleSubmit(); navigate('/signin'); }}>Criar Conta</button>
+                    <button onClick={() => { handleSubmit(); navigate('/minhas-bicicletas'); }}>Criar Conta</button>
                 </section>
             )}
         </form>
