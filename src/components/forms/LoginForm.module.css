@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    gap: 16px
+    gap: 16px;
 }
 
 .formSignIn article {
@@ -23,7 +23,7 @@
     transition:0.5s;
     overflow: hidden;
     box-sizing: border-box;
-    
+    border: 1.6px  solid var(--border-color);
 }
 
 .formSignIn article label{
@@ -32,6 +32,7 @@
     height: 3.5dvh;
     align-items: center;
     padding: 1.5dvh;
+    color: var(--border-color);
 }
 
 .formSignIn button {
@@ -48,7 +49,6 @@
     outline:none;
     border: none;
     box-shadow: none;
-    color: var(--white);
     cursor: pointer;
     border-radius: 12px;
     width: 100%;

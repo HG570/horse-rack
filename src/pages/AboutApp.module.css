@@ -4,6 +4,7 @@
     width: 100%;
     align-items: center;
     text-align: center;
+    color: var(--text-color);
 }
 
 .info {

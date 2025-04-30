@@ -4,6 +4,7 @@
     justify-content: center;
     width: 100%;
     gap: 16px;
+    color: var(--text-color);
 }
 .form h1 {
     text-align: center;
