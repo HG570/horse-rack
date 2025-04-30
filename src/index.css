@@ -11,6 +11,19 @@
   --green: #2AA81F;
   --green-citizen: #2EA854;
 
+   /* Bike Colors Variables*/
+  --bike-black: black;
+  --bike-white: white;
+  --bike-gray: gray;
+  --bike-yellow: #ffbf00;
+  --bike-blue: #1c3ed5;
+  --bike-green: #12c015;
+  --bike-red: #ce2828;
+  --bike-orange: #f35715;
+  --bike-brown: #6f2e1e;
+  --bike-purple: #8b20ce;
+  --bike-pink: #e74c97;
+
   /* Font Weight Variables*/
   --regular: 400;
   --medium: 500;
@@ -18,22 +31,23 @@
   --bold: 700;
 
   /* Colors Theme*/
-  /* Light */
-  --background-color-light: var(--white);
-  --header-color-light: var(--gray-cptm);
-  --text-color-light: var(--black);
-  --link-color-light: var(--dark-gray);
-  --button-color-light: var(--red-cptm);
-  --border-color-light: var(--dark-gray);
+  /* Default Or Light */
+  --background-color: var(--white);
+  --header-color: var(--gray-cptm);
+  --text-color: var(--black);
+  --link-color: var(--dark-gray);
+  --button-color: var(--red-cptm);
+  --border-color: var(--dark-gray);
+  --card-background-color: var(--white);
 
   /* Dark */
-  --background-color-dark: var(--dark-gray);
+  --background-dark: var(--dark-gray);
   --header-color-dark: var(--eerie-black);
   --text-color-dark: var(--gray-cptm);
   --link-color-dark: var(--gray-cptm);
   --button-color-dark: var(--red-cptm);
   --border-color-dark: var(--white);
-
+  --card-background-color-dark: var(--eerie-black);
 }
 
 button {
@@ -49,66 +63,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color-light);
+  background-color: var(--background-color);
   font-size: 100%;
 }
 
 input {
   border-style: none;
-  border: 1.6px solid var(--border-color-light);
+  background-color: var(--background-color);
+  border: 1.6px solid var(--border-color);
 }
 
 input:not(:placeholder-shown) {
-  color: var(--text-color-light);
+  color: var(--text-color);
 }
 
 a {
-  color: var(--link-color-light)
+  color: var(--link-color)
 }
 
 select {
-  background-color: var(--background-color-light);
-  border: 1.6px solid var(--header-color-dark);
-  color: var(--text-color-light);
+  background-color: var(--background-color);
+  border: 1.6px solid var(--border-color);
+  color: var(--text-color);
   font-size: 1rem;
 }
 
 body.dark-theme {
-  background-color: var(--background-color-dark);
-  color: var(--text-color-dark);
-
-  header {
-    background-color: var(--header-color-dark);
-    color: var(--gray-cptm)
-  }
-
-  a {
-    color: var(--text-color-dark)
-  }
-
-  input {
-    background-color: var(--background-color-dark);
-    border: 1.6px solid var(--border-color-dark);
-  }
-
-  input:not(:placeholder-shown) {
-    color: var(--text-color-dark);
-  }
-
-  li {
-    color: var(--text-color-dark)
-  }
-
-  svg {
-    color: var(--link-color-dark);
-  }
-
-  select {
-    background-color: var(--background-color-dark);
-    border: 1.6px solid var(--border-color-dark);
-    color: var(--text-color-dark);
-  }
-
+  --background-color: var(--background-dark);
+  --header-color: var(--header-color-dark);
+  --text-color: var( --text-color-dark);
+  --link-color: var(--link-color-dark);
+  --button-color: var(--button-color-dark);
+  --border-color: var(--border-color-dark);
+  --card-background-color: var(--card-background-color-dark);
 }
 
 body.small-font {
@@ -222,8 +209,8 @@ header {
   justify-content: center;
   padding: 3.375vh 7.5vw;
   word-wrap: none;
-  color: var(--dark-gray);
-  background-color: var(--header-color-light);
+  color: var(--border-color);
+  background-color: var(--header-color);
 }
 
 main {
