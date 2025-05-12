@@ -55,6 +55,14 @@
     font-size: 20px;
 }
 
+.formBike button:hover {
+    background: linear-gradient(0deg, #ffffff10 0%, #ffffff10 100%), var(--red-cptm);
+}
+
+.formBike button:active {
+    background: linear-gradient(0deg, #ffffff20 0%, #ffffff20 100%), var(--red-cptm);
+}
+
 .formBike div {
     display: flex;
     flex-direction: column;

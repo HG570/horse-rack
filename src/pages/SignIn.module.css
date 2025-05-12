@@ -8,10 +8,11 @@
 .access_menu h1 {
     text-align: center;
     margin: 0 0 22px 0;
+    color: var(--text-color);
 }
 
 .option {
-    background-color: var(--red-cptm);
+    background: var(--red-cptm);
     box-sizing: border-box;
     overflow: hidden;
     transition: 0.5s;
@@ -35,9 +36,18 @@
     font-size: 1.25rem;
 }
 
+.option:hover {
+    background: linear-gradient(0deg, #ffffff10 0%, #ffffff10 100%), var(--red-cptm);
+}
+
+.option:active {
+    background: linear-gradient(0deg, #ffffff20 0%, #ffffff20 100%), var(--red-cptm);
+}
+
 .forgot {
     all: unset;
     text-align: center;
+    color: var(--text-color);
 }
 
 @media screen and (min-width: 1024px) {

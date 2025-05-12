@@ -26,13 +26,19 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-
-}
-
-.navbar li {
     color: white;
     padding: 1%;
     font-size: 75%;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.navbar li:hover {
+    background: linear-gradient(0deg, #ffffff10 0%, #ffffff10 100%), var(--red-cptm);
+}
+
+.navbar li:active {
+    background: linear-gradient(0deg, #ffffff20 0%, #ffffff20 100%), var(--red-cptm);
 }
 
 .navbar li a {
@@ -44,8 +50,7 @@ footer {
 }
 
 .navbar svg {
-    font-size: 2.5em;
-    cursor: pointer;
+    font-size: 2.5em; 
     color: white;
 }
 
