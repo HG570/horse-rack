@@ -93,7 +93,7 @@ function EditBikeForm({ step, bicycle }) {
                     name="model"
                     value={formData.model}
                     onChange={handleChange}
-                    maxlength="32"
+                    maxLength="32"
                     required
                 />
                 <label className={styles.label} htmlFor="model">Modelo</label>
@@ -120,7 +120,7 @@ function EditBikeForm({ step, bicycle }) {
                     name="chassis"
                     value={formData.chassis}
                     onChange={handleChange}
-                    maxlength="17"
+                    maxLength="17"
                     required
                 />
                 <label className={styles.label} htmlFor="chassis">Chassis</label>
@@ -147,7 +147,7 @@ function EditBikeForm({ step, bicycle }) {
                     name="details"
                     value={formData.details}
                     onChange={handleChange}
-                    maxlength="255"
+                    maxLength="255"
                     required
                 />
                 <label className={styles.label} htmlFor="details">Detalhes</label>

@@ -69,7 +69,7 @@ function AddBikeForm({ step }) {
                     name="model"
                     value={formData.model}
                     onChange={handleChange}
-                    maxlength="32"
+                    maxLength="32"
                     required
                 />
                 <label className={styles.label} htmlFor="model">Modelo</label>
@@ -82,7 +82,7 @@ function AddBikeForm({ step }) {
                     onChange={handleChange}
                     required
                 >
-                    <option value="" disabled>Selecione uma cor</option>
+                    <option value="black" disabled>Selecione uma cor</option>
                     {Object.entries(colors).map(([key, value]) => (
                         <option key={key} value={key}>{value}</option>
                     ))}
@@ -96,7 +96,7 @@ function AddBikeForm({ step }) {
                     name="chassis"
                     value={formData.chassis}
                     onChange={handleChange}
-                    maxlength="17"
+                    maxLength="17"
                     required
                 />
                 <label className={styles.label} htmlFor="chassis">Chassis</label>
@@ -109,9 +109,9 @@ function AddBikeForm({ step }) {
                     onChange={handleChange}
                     required
                 >
-                    <option value="" disabled>Selecione uma ano</option>
+                    <option value={`${currentYear}`} disabled>Selecione uma ano</option>
                     {years.map(year => (
-                        <option key={year} value={year}>{year}</option>
+                        <option key={year} value={`${year}`}>{year}</option>
                     ))}
                 </select>
                 <label className={styles.label} htmlFor="year">Ano</label>
@@ -123,7 +123,7 @@ function AddBikeForm({ step }) {
                     name="details"
                     value={formData.details}
                     onChange={handleChange}
-                    maxlength="255"
+                    maxLength="255"
                 />
                 <label className={styles.label} htmlFor="details">Detalhes</label>
             </article>
