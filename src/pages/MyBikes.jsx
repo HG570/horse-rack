@@ -49,7 +49,7 @@ function MyBikes() {
                 <div className={styles.form}>
                     <button type="button" className={styles.button} onClick={goToNextStep}>Adicionar Bicicleta</button>
                     <div className={styles.cards}>
-                        {!bicycles ? (
+                        {bicycles.length == 0 ? (
                             <p>Não foram encontradas bicicletas cadastradas.</p>
                         ) : bicycles.map(bicycle => (
                             <BikeCard
