@@ -18,6 +18,7 @@
     font-size: 87.5%;
     font-weight: bold;
     flex:1;
+    color: var(--text-color);
 }
 
 .stationCard button{
