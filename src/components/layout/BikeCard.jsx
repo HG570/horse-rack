@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 function BikeCard({ bicycleId, model, color, chassis, year, details, step, bicycle }) {
 
     const navigate = useNavigate();
-    const deleteMyBike = () => {
-        deleteBicycle(bicycleId);
+    const deleteMyBike = async () => {
+        await deleteBicycle(bicycleId);
         navigate(0);
     }
         const colorMap = {
