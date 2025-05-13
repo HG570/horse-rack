@@ -14,7 +14,6 @@ export const addBicycle = async (data) => {
         return response;
     } catch (error) {
         console.error('Erro ao adicionar a bicicleta', error);
-        localStorage.clearItem('token', 'userId');
     }
 };
 
@@ -31,7 +30,6 @@ export const getBicycles = async () => {
         return response.data;
     } catch (error) {
         console.error('Erro ao obter as bicicletas do usuário', error);
-        localStorage.clearItem('token', 'userId');
     }
 };
 

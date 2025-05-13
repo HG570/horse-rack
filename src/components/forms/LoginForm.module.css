@@ -55,6 +55,14 @@
     font-size: 1.25rem;
 }
 
+.formSignIn button:hover {
+    background: linear-gradient(0deg, #ffffff10 0%, #ffffff10 100%), var(--red-cptm);
+}
+
+.formSignIn button:active {
+    background: linear-gradient(0deg, #ffffff20 0%, #ffffff20 100%), var(--red-cptm);
+}
+
 .formSignIn div {
     display: flex;
     flex-direction: column;

@@ -55,7 +55,13 @@
     width: 100%;
     font-size: 20px;
 }
+.formSignUp section button:hover {
+    background: linear-gradient(0deg, #ffffff10 0%, #ffffff10 100%), var(--red-cptm);
+}
 
+.formSignUp section button:active {
+    background: linear-gradient(0deg, #ffffff20 0%, #ffffff20 100%), var(--red-cptm);
+}
 .formSignUp section div {
     display: flex;
     flex-direction: column;

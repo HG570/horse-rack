@@ -21,9 +21,6 @@
     gap: 8px;
     color: var(--text-color);
 }
-p {
-    color: var(--text-color);
-}
 
 .citizenList{
     padding-left: 5dvw;

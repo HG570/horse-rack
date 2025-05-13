@@ -18,6 +18,14 @@
     font-size: 20px;
 }
 
+.button:hover {
+    background: linear-gradient(0deg, #ffffff10 0%, #ffffff10 100%), var(--red-cptm);
+}
+
+.button:active {
+    background: linear-gradient(0deg, #ffffff20 0%, #ffffff20 100%), var(--red-cptm);
+}
+
 .cards {
     display: flex;
     flex-direction: column;
@@ -25,6 +33,7 @@
     gap: 16px;
     align-items: center;
     padding-bottom: 10dvh;
+    text-align: center;
 }
 
 .form {

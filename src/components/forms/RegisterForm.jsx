@@ -90,6 +90,7 @@ function RegisterForm() {
         try {
             await signUp(formData);
             alert('Cadastro realizado com sucesso!');
+            navigate('/signin'); 
         } catch (error) {
             setError('Falha ao realizar o cadastro. Tente novamente.');
             alert('Falha ao realizar o cadastro. Tente novamente.');
@@ -216,7 +217,7 @@ function RegisterForm() {
                     </article>
                     <p>Ao criar uma conta, você concorda com nossos <Link to="/politica-privacidade">Termos, Política de Privacidade e Política de Cookies.</Link></p>
 
-                    <button onClick={() => { handleSubmit(); navigate('/minhas-bicicletas'); }}>Criar Conta</button>
+                    <button onClick={() => {handleSubmit()}}>Criar Conta</button>
                 </section>
             )}
         </form>

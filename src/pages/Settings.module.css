@@ -51,6 +51,13 @@
 
 }
 
+.option:hover {
+    background: linear-gradient(0deg, #ffffff10 0%, #ffffff10 100%), var(--red-cptm);
+}
+
+.option:active {
+    background: linear-gradient(0deg, #ffffff20 0%, #ffffff20 100%), var(--red-cptm);
+}
 
 .option svg {
     width: 1.5rem;
