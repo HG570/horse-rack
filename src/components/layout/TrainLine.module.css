@@ -24,7 +24,7 @@
     transition: 0.5s;
     position: relative;
     flex-grow: 1;
-    height: 6.5vh;
+    min-height: 6.5vh;
     flex-basis: 100%;
     color: var(--white);
     padding: 3.75%;
