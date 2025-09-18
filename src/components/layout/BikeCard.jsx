@@ -7,7 +7,11 @@ function BikeCard({ bicycleId, model, color, chassis, year, details, step, bicyc
 
     const navigate = useNavigate();
     const deleteMyBike = async () => {
-        await deleteBicycle(bicycleId);
+        try {
+            await deleteBicycle(bicycleId);
+        } catch (error) {
+            console.log(error)
+        }
         navigate(0);
     }
         const colorMap = {
