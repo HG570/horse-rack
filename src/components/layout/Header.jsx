@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import Back from '../button/Back'
 import styles from './Header.module.css'
 
-function Header({ title }) {
+function Header({ title, step, setStep }) {
     const location = useLocation();
     const isNotHomePage = location.pathname !== '/' && location.pathname !== '/conta';
     if (!title){
@@ -13,7 +13,7 @@ function Header({ title }) {
     return (
         <>
             {isNotHomePage ? (
-                <Back />
+                <Back step={step} setStep={setStep} />
             ) : (
                     <></>
             )}

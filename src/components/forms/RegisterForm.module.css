@@ -1,3 +1,7 @@
+.formSignUp {
+    padding-bottom: 10vh;
+}
+
 .formSignUp section{
     display: flex;
     flex-direction: column;
@@ -6,10 +10,25 @@
     gap: 16px;
 }
 
+.rowInputs {
+    display: flex;
+    flex-direction: row;
+    gap: 8px
+}
+
+.cepInput {
+    flex: 6;
+}
+
+.numberInput{
+    flex: 4;
+}
+
+
 .formSignUp section article {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
 }
 
@@ -34,6 +53,7 @@
     align-items: center;
     padding: 1.5dvh;
     color: var(--border-color);
+    user-select: none;
 }
 
 .formSignUp section button {
@@ -86,4 +106,8 @@
     top: -2dvh;
     font-size: 12px;
     color:var(--border-color);   
+}
+
+.formSignUp p {
+    color:var(--text-color);
 }

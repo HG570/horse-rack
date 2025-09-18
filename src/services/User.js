@@ -1,12 +1,11 @@
 import { post } from './Api';
 import api from './Api';
 
-export const signUp = async (userData) => {
+export const  signUp = async (userData) => {
     try {
         const response = await post('/user', userData);
         return response;
     } catch (error) {
-        console.error('Sign-up failed:', error);
         throw error;
     }
 };
@@ -24,7 +23,6 @@ export const updateUser = async (updatedData) => {
 
         return response.data;
     } catch (error) {
-        console.error('Erro ao atualizar o perfil do usuário', error);
         throw error;
     }
 };

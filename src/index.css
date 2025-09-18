@@ -96,6 +96,11 @@ body.dark-theme {
   --button-color: var(--button-color-dark);
   --border-color: var(--border-color-dark);
   --card-background-color: var(--card-background-color-dark);
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #333 inset;
+    -webkit-text-fill-color: var(--text-color);
+  }
 }
 
 body.small-font {

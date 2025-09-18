@@ -1,4 +1,8 @@
 .formSignUp section{
+    padding-bottom: 10vh;
+}
+
+.formSignUp section{
     display: flex;
     flex-direction: column;
     justify-content: center;

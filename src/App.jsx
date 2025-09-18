@@ -19,10 +19,13 @@ import MyVacancies from './pages/MyVacancies'
 import EditProfile from './pages/EditProfile'
 import Accessibility from './pages/Accessibility'
 import MyBikes from './pages/MyBikes'
+import Support from './pages/Support'
+import Policy from './pages/Policy'
 
 function App() {
   const [isQRCodeOpen, setIsQRCodeOpen] = useState(false);
   const [myBikes, setMyBikes] = useState();
+  const [currentStep, setCurrentStep] = useState(1);
   const handleOpenQRCode = () => setIsQRCodeOpen(true);
   const handleCloseQRCode = () => setIsQRCodeOpen(false);
 
@@ -45,9 +48,11 @@ function App() {
             <Route path='/acessibilidade' element={<Header title="Acessibilidade" />} />
             <Route path='/sobre' element={<Header />} />
             <Route path='/signin' element={<Header />} />
-            <Route path='/signup' element={<Header />} />
-            <Route path='/atualizar-informacoes' element={<Header />} />
+            <Route path='/signup' element={<Header step={currentStep} setStep={setCurrentStep}/>} />
+            <Route path='/atualizar-informacoes' element={<Header step={currentStep} setStep={setCurrentStep}/>} />
             <Route path='/esqueci-a-senha' element={<Header />} />
+            <Route path='/suporte' element={<Header title="Suporte" />} />
+            <Route path='/politica-privacidade' element={<Header title="Política de Privacidade" />} />
           </Routes>
         </header>
         <main>
@@ -61,13 +66,15 @@ function App() {
             <Route path='/sobre' element={<AboutApp />} />
             <Route path='/dados-pessoais' element={<PersonalInfo />} />
             <Route path='/signin' element={<SignIn />} />
-            <Route path='/atualizar-informacoes' element={<EditProfile />} />
-            <Route path='/signup' element={<SignUp />} />
+            <Route path='/atualizar-informacoes' element={<EditProfile step={currentStep} setStep={setCurrentStep}/>} />
+            <Route path='/signup' element={<SignUp step={currentStep} setStep={setCurrentStep}/>} />
             <Route path='/esqueci-a-senha' element={<ForgotPassword />} />
             <Route path="/acessibilidade" element={<Accessibility />} />
             <Route path="/bicicletarios" element={<BicycleRacks />} />
             <Route path='/ciclista-cidadao' element={<CitizenCyclist />} />
             <Route path='/paraciclos' element={<Paracycles />} />
+            <Route path='/suporte' element={<Support />} />
+            <Route path='/politica-privacidade' element={<Policy />} />
           </Routes>
         </main>
         <footer>

@@ -13,6 +13,10 @@
     width: 100%;
 }
 
+.linkRegulation {
+    color: var(--text-color);
+}
+
 .citizenObservation{
     display: flex;
     flex-direction: column;
@@ -24,7 +28,6 @@
 
 .citizenList{
     padding-left: 5dvw;
-    font-size: 0.8rem;
 }
 
 .image {
@@ -40,7 +43,6 @@
 
 .title h1{
     text-align: center;
-    font-size: larger;
 }
 
 @media screen and (min-width: 1024px) {

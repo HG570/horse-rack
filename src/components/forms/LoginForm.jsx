@@ -11,7 +11,7 @@ function LoginForm() {
     const navigate = useNavigate();
     const [bicycles, setBicycles] = useState(null);
     const userId = localStorage.getItem('userId');
-    
+
     const submit = async (e) => {
         e.preventDefault();
         setError('');
@@ -32,12 +32,19 @@ function LoginForm() {
                     } catch (error) {
                         console.error('Error fetching profile:', error);
                     }
-                    console.log(bicycles);
                     !bicycles ? navigate("/minhas-bicicletas") : navigate("/conta");
                     alert('Login realizado com sucesso!');
                 } catch (error) {
-                    console.error('Authentication failed:', error);
-                    setError('Falha ao fazer login. Verifique suas credenciais.');
+                    switch (error.type) {
+                        case 'connection':
+                            setError(err.message);
+                            break;
+                        case 'validation':
+                            setError('Falha ao fazer login. Verifique suas credenciais.');
+                            break;
+                        default:
+                            setError('Falha ao fazer login. Verifique suas credenciais.');
+                    }
                 }
             }
         } else {
