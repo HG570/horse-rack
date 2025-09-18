@@ -2,9 +2,8 @@
 import { HiMiniArrowLeftCircle } from "react-icons/hi2"
 import styles from './Back.module.css'
 
-function Back() {
-    const goBack = () => {  window.history.back();}
-
+function Back({ step, setStep }) {    
+    const goBack = () => { step > 1 ? setStep(step - 1) :window.history.back();}
     return (
         <>
             <button onClick={goBack} className={styles.back}>

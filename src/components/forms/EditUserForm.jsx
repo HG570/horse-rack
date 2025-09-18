@@ -3,14 +3,12 @@ import styles from './EditUserForm.module.css'
 import { useNavigate } from 'react-router-dom'
 import { fetchAddressByPostalCode } from '../../services/ViaCep'
 import { getUser, updateUser } from '../../services/User';
-function EditUserForm() {
+function EditUserForm({ currentStep, setCurrentStep }) {
     const navigate = useNavigate();
     const [profile, setProfile] = useState(null);
 
 
     const [error, setError] = useState(null);
-
-    const [currentStep, setCurrentStep] = useState(1);
 
     const [loadingCep, setLoadingCep] = useState(false);
 

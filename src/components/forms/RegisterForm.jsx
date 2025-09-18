@@ -5,7 +5,7 @@ import { signUp } from '../../services/User';
 import { useNavigate } from 'react-router-dom';
 import { fetchAddressByPostalCode } from '../../services/ViaCep'
 import InputMask from 'react-input-mask';
-function RegisterForm() {
+function RegisterForm({ currentStep, setCurrentStep}) {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: null,
@@ -48,8 +48,6 @@ function RegisterForm() {
     const cepMask = maskMap["CEP"];
 
     const [error, setError] = useState(null);
-
-    const [currentStep, setCurrentStep] = useState(1);
 
     const [loadingCep, setLoadingCep] = useState(false);
 
