@@ -7,6 +7,8 @@ import Loading from "../components/common/loading/Loading"
 function MyVacancies() {
     const [vacancy, setVacancy] = useState(null);
     const userId = localStorage.getItem('userId');
+    const [error, setError] = useState(null);
+
     useEffect(() => {
         const fetchProfile = async () => {
             try {
@@ -15,7 +17,18 @@ function MyVacancies() {
                 console.log(userVacancy);
                 setVacancy(userVacancy);
             } catch (error) {
-                console.error('Error fetching profile:', error);
+                switch (error.type) {
+                    case 'connection':
+                        setError(error.message);
+                        alert(error.message);
+                        break;
+                    case 'validation':
+                        setError(error.message);
+                        alert(error.message);
+                        break;
+                    default:
+                        setError('Não há vagas ocupadas no momento.');
+                }
             }
         };
 
@@ -23,7 +36,7 @@ function MyVacancies() {
     }, [userId]);
 
     if (vacancy === null) {
-        return <Loading/>;
+        return <Loading />;
     }
 
     const isVacancyEmpty = !vacancy.bikeRack && !vacancy.entryDate && !vacancy.attendant;
