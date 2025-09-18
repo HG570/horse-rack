@@ -13,22 +13,28 @@ function MainMenu() {
         <section className={styles.container}>
             <article className={styles.card} onClick={() => (navigate("/bicicletarios"))}>
                 <img src={bikerack_banner} alt="Foto Bicicletário" />
-                <div className={styles.icon}>
-                    <GrBike />
+                <div className={styles.iconContainer}>
+                    <div className={styles.icon}>
+                        <GrBike />
+                    </div>
                     <h3>Bicicletários</h3>
                 </div>
             </article>
             <article className={styles.card} onClick={() => { navigate("/ciclista-cidadao") }}>
                 <img src={ciclista_cidadao} alt="Logo Ciclista Cidadão" />
-                <div className={styles.icon}>
-                    <img src={citizen_cyclist_logo} alt="Logo Ciclista Cidadão"/>
-                    <h3>Ciclista Cidadao</h3>
+                <div className={styles.iconContainer}>
+                    <div className={styles.icon}>
+                        <img src={citizen_cyclist_logo} alt="Logo Ciclista Cidadão" />
+                    </div>
+                    <h3>Ciclista <br/>Cidadao</h3>
                 </div>
             </article>
             <article className={styles.card} onClick={() => { navigate("/paraciclos") }}>
                 <img src={paracycles} alt="Foto Paraciclos" />
-                <div className={styles.icon}>
-                    <FaParking />
+                <div className={styles.iconContainer}>
+                    <div className={styles.icon}>
+                        <FaParking />
+                    </div>
                     <h3>Paraciclos</h3>
                 </div>
             </article>
