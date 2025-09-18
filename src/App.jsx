@@ -19,6 +19,8 @@ import MyVacancies from './pages/MyVacancies'
 import EditProfile from './pages/EditProfile'
 import Accessibility from './pages/Accessibility'
 import MyBikes from './pages/MyBikes'
+import Support from './pages/Support'
+import Policy from './pages/Policy'
 
 function App() {
   const [isQRCodeOpen, setIsQRCodeOpen] = useState(false);
@@ -48,6 +50,8 @@ function App() {
             <Route path='/signup' element={<Header />} />
             <Route path='/atualizar-informacoes' element={<Header />} />
             <Route path='/esqueci-a-senha' element={<Header />} />
+            <Route path='/suporte' element={<Header title="Suporte" />} />
+            <Route path='/politica-privacidade' element={<Header title="Política de Privacidade" />} />
           </Routes>
         </header>
         <main>
@@ -68,6 +72,8 @@ function App() {
             <Route path="/bicicletarios" element={<BicycleRacks />} />
             <Route path='/ciclista-cidadao' element={<CitizenCyclist />} />
             <Route path='/paraciclos' element={<Paracycles />} />
+            <Route path='/suporte' element={<Support />} />
+            <Route path='/politica-privacidade' element={<Policy />} />
           </Routes>
         </main>
         <footer>

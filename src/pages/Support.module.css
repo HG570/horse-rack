@@ -1,0 +1,8 @@
+.support article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    width: 100%;
+    color: var(--text-color)
+}
