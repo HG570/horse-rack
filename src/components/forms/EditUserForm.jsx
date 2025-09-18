@@ -6,10 +6,10 @@ import { getUser, updateUser } from '../../services/User';
 function EditUserForm() {
     const navigate = useNavigate();
     const [profile, setProfile] = useState(null);
-    
+
 
     const [error, setError] = useState(null);
-    
+
     const [currentStep, setCurrentStep] = useState(1);
 
     const [loadingCep, setLoadingCep] = useState(false);
@@ -33,7 +33,7 @@ function EditUserForm() {
             complement: ''
         }
     });
-    
+
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -69,7 +69,14 @@ function EditUserForm() {
         return <div>Carregando...</div>;
     }
 
-    
+    const maskMap = {
+        RG: "99.999.999-9",
+        CPF: "999.999.999-99",
+        CNH: "99999999999",
+        PASSAPORTE: "AA999999",
+        CRNM: "99999999999",
+        CEP: "99999-999"
+    };
     const documentTypeMapping = {
         "RG": 1,
         "CPF": 2,
@@ -77,6 +84,11 @@ function EditUserForm() {
         "PASSAPORTE": 4,
         "CRNM": 5
     };
+
+    const selectedKey = Object.keys(documentTypeMapping)
+        .find(key => documentTypeMapping[key] === formData.docType) || 'RG'
+    const currentMask = maskMap[selectedKey];
+    const cepMask = maskMap["CEP"];
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -124,13 +136,25 @@ function EditUserForm() {
         }
     };
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
             await updateUser(formData);
             alert('Informações atualizadas com sucesso!');
         } catch (error) {
-            setError('Falha ao realizar o cadastro. Tente novamente.');
-            event.preventDefault();
+            switch (error.type) {
+                case 'connection':
+                    setError(error.message);
+                    alert(error.message);
+                    break;
+                case 'validation':
+                    setError(error.message);
+                    alert(error.message);
+                    break;
+                default:
+                    setError('Ocorreu um erro inesperado. Tente novamente.');
+                    alert('Ocorreu um erro inesperado. Tente novamente.');
+            }
         }
     };
 
@@ -138,10 +162,10 @@ function EditUserForm() {
         setError(null)
         if (formData.name === null && formData.email === null && formData.password === null) {
             setError('Você deve inserir todos os dados.');
-        } else if (currentStep===2 && formData.docType === null && formData.document === null && formData.birthDate === '') {
+        } else if (currentStep === 2 && formData.docType === null && formData.document === null && formData.birthDate === '') {
             setError('Você deve inserir todos os dados.');
         } else {
-        setCurrentStep(prevStep => prevStep + 1);
+            setCurrentStep(prevStep => prevStep + 1);
         }
     };
 

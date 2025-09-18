@@ -4,12 +4,12 @@ import styles from './RegisterForm.module.css';
 import { signUp } from '../../services/User';
 import { useNavigate } from 'react-router-dom';
 import { fetchAddressByPostalCode } from '../../services/ViaCep'
-
+import InputMask from 'react-input-mask';
 function RegisterForm() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: null,
-        docType: null,
+        docType: 1,
         document: null,
         birthDate: null,
         email: null,
@@ -26,6 +26,14 @@ function RegisterForm() {
         }
     });
 
+    const maskMap = {
+        RG: "99.999.999-9",
+        CPF: "999.999.999-99",
+        CNH: "99999999999",
+        PASSAPORTE: "AA999999",
+        CRNM: "99999999999",
+        CEP: "99999-999"
+    };
     const documentTypeMapping = {
         "RG": 1,
         "CPF": 2,
@@ -33,6 +41,11 @@ function RegisterForm() {
         "PASSAPORTE": 4,
         "CRNM": 5
     };
+
+    const selectedKey = Object.keys(documentTypeMapping)
+        .find(key => documentTypeMapping[key] === formData.docType) || 'RG'
+    const currentMask = maskMap[selectedKey];
+    const cepMask = maskMap["CEP"];
 
     const [error, setError] = useState(null);
 
@@ -61,7 +74,7 @@ function RegisterForm() {
     };
 
     const handleCepBlur = async () => {
-        const postalCode = formData.addressDTO.postalCode;
+        const postalCode = formData.addressDTO.postalCode.replace(/[^0-9]/g, '');
         if (!postalCode) return;
 
         setLoadingCep(true);
@@ -87,14 +100,27 @@ function RegisterForm() {
     };
 
     const handleSubmit = async (event) => {
+        event.preventDefault();
         try {
+            formData.document = await formData.document.replace(/[^0-9]/g, '')
+            formData.addressDTO.postalCode = await formData.addressDTO.postalCode.replace(/[^A-Za-z0-9]/g, '')
             await signUp(formData);
+            await navigate('/signin');
             alert('Cadastro realizado com sucesso!');
-            navigate('/signin'); 
         } catch (error) {
-            setError('Falha ao realizar o cadastro. Tente novamente.');
-            alert('Falha ao realizar o cadastro. Tente novamente.');
-            event.preventDefault();
+            switch (error.type) {
+                case 'connection':
+                    setError(error.message);
+                    alert(error.message);
+                    break;
+                case 'validation':
+                    setError(error.message);
+                    alert(error.message);
+                    break;
+                default:
+                    setError('Ocorreu um erro inesperado. Tente novamente.');
+                    alert('Ocorreu um erro inesperado. Tente novamente.');
+            }
         }
     };
 
@@ -112,24 +138,54 @@ function RegisterForm() {
         }
     };
 
+    const estadosMap = {
+        AC: "Acre",
+        AL: "Alagoas",
+        AP: "Amapá",
+        AM: "Amazonas",
+        BA: "Bahia",
+        CE: "Ceará",
+        DF: "Distrito Federal",
+        ES: "Espírito Santo",
+        GO: "Goiás",
+        MA: "Maranhão",
+        MT: "Mato Grosso",
+        MS: "Mato Grosso do Sul",
+        MG: "Minas Gerais",
+        PA: "Pará",
+        PB: "Paraíba",
+        PR: "Paraná",
+        PE: "Pernambuco",
+        PI: "Piauí",
+        RJ: "Rio de Janeiro",
+        RN: "Rio Grande do Norte",
+        RS: "Rio Grande do Sul",
+        RO: "Rondônia",
+        RR: "Roraima",
+        SC: "Santa Catarina",
+        SP: "São Paulo",
+        SE: "Sergipe",
+        TO: "Tocantins"
+    };
+
     return (
-        <form className={styles.formSignUp}>
+        <form className={styles.formSignUp} onSubmit={handleSubmit}>
             {currentStep === 1 && (
                 <section>
                     <article>
-                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+                        <input type="text" id="name" name="name" value={formData.name ?? ''} onChange={handleChange} required />
                         <label htmlFor="name">Nome Completo</label>
                     </article>
                     <article>
-                        <input type="text" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                        <input type="text" id="email" name="email" value={formData.email ?? ''} onChange={handleChange} required />
                         <label htmlFor="email">E-mail</label>
                     </article>
                     <article>
-                        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                        <input type="password" id="password" name="password" value={formData.password ?? ''} onChange={handleChange} required />
                         <label htmlFor="password">Senha</label>
                     </article>
                     <article>
-                        <input type="password" id="confirm-senha" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
+                        <input type="password" id="confirm-senha" name="confirmPassword" value={formData.confirmPassword ?? ''} onChange={handleChange} required />
                         <label htmlFor="confirm-senha">Confirme a senha</label>
                     </article>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -139,7 +195,7 @@ function RegisterForm() {
             {currentStep === 2 && (
                 <section>
                     <article>
-                        <select list="documents" id="documentType" name="docType" value={Object.keys(documentTypeMapping).find(key => documentTypeMapping[key] === formData.docType) || ''} onChange={handleChange} required >
+                        <select list="documents" id="documentType" name="docType" value={Object.keys(documentTypeMapping).find(key => documentTypeMapping[key] === formData.docType) || 1} onChange={handleChange} required >
                             <option value="RG">RG</option>
                             <option value="CPF">CPF</option>
                             <option value="CNH">CNH</option>
@@ -149,11 +205,15 @@ function RegisterForm() {
                         <label htmlFor="documentType">Tipo de Documento</label>
                     </article>
                     <article>
-                        <input type="text" id="document" name="document" value={formData.document} onChange={handleChange} required />
+                        <InputMask mask={currentMask} maskPlaceholder={null} value={formData.document} onChange={handleChange} >
+                            {inputProps => (
+                                <input {...inputProps} type="text" id="document" name="document" required />
+                            )}
+                        </InputMask>
                         <label htmlFor="document">Documento</label>
                     </article>
                     <article>
-                        <input type="date" id="birthDate" name="birthDate" value={formData.birthDate} onChange={handleChange} required />
+                        <input type="date" id="birthDate" name="birthDate" value={formData.birthDate ?? ''} onChange={handleChange} required />
                         <label htmlFor="birthDate" className={styles.birthDate}>Data de Nascimento</label>
                     </article>
                     <button type="button" onClick={goToNextStep}>Próxima Etapa</button>
@@ -161,63 +221,50 @@ function RegisterForm() {
             )}
             {currentStep === 3 && (
                 <section>
-                    <article>
-                        <input type="text" id="postalCode" name="addressDTO.postalCode" value={formData.addressDTO.postalCode} onChange={handleChange} onBlur={handleCepBlur} required />
-                        <label htmlFor="postalCode">CEP</label>
-                        {loadingCep && <p>Buscando endereço...</p>}
+                    <article className={styles.rowInputs}>
+                        <article className={styles.cepInput}>
+                            <InputMask mask={cepMask} maskPlaceholder={null} value={formData.addressDTO.postalCode ?? ''} onChange={handleChange} onBlur={handleCepBlur}>
+                                {inputProps => (
+                                    <input {...inputProps} type="text" id="postalCode" name="addressDTO.postalCode" required />
+                                )}
+                            </InputMask>
+                            <label htmlFor="postalCode">CEP</label>
+                            {loadingCep && <p>Buscando endereço...</p>}
+                        </article>
+                        <article className={styles.numberInput}>
+                            <input type="number" id="number" name="addressDTO.number" value={formData.addressDTO.number ?? ''} onChange={handleChange} required />
+                            <label htmlFor="number">Número</label>
+                        </article>
                     </article>
                     <article>
-                        <input type="number" id="number" name="addressDTO.number" value={formData.addressDTO.number} onChange={handleChange} required />
-                        <label htmlFor="number">Número</label>
-                    </article>
-                    <article>
-                        <input type="text" id="address" name="addressDTO.address" value={formData.addressDTO.address} onChange={handleChange} required />
+                        <input type="text" id="address" name="addressDTO.address" value={formData.addressDTO.address ?? ''} onChange={handleChange} required />
                         <label htmlFor="address">Logradouro</label>
                     </article>
                     <article>
-                        <input type="text" id="neighborhood" name="addressDTO.neighborhood" value={formData.addressDTO.neighborhood} onChange={handleChange} required />
+                        <input type="text" id="neighborhood" name="addressDTO.neighborhood" value={formData.addressDTO.neighborhood ?? ''} onChange={handleChange} required />
                         <label htmlFor="neighborhood">Bairro</label>
                     </article>
+                        <article className={styles.cityInput}>
+                            <input type="text" id="city" name="addressDTO.city" value={formData.addressDTO.city ?? ''} onChange={handleChange} required />
+                            <label htmlFor="city">Cidade</label>
+                        </article>
+                        <article>
+                            <select list="states" id="state" name="addressDTO.state" value={formData.addressDTO.state ?? 'SP'} onChange={handleChange} required>
+                                <option key="" value="" disabled>Selecione um estado</option>
+                                {Object.entries(estadosMap).map(([sigla, nome]) => (
+                                    <option key={sigla} value={sigla}>{nome}</option>
+                                )
+                                )}
+                            </select>
+                            <label htmlFor="state">Estado</label>
+                        </article>
                     <article>
-                        <input type="text" id="city" name="addressDTO.city" value={formData.addressDTO.city} onChange={handleChange} required />
-                        <label htmlFor="city">Cidade</label>
-                    </article>
-                    <article>
-                        <select list="states" id="state" name="addressDTO.state" value={formData.addressDTO.state} onChange={handleChange} required>
-                            <option value="" disabled>Selecione um estado</option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
-                        <label htmlFor="state">Estado</label>
+                        <input type="text" id="complement" name="addressDTO.complement" value={formData.addressDTO.complement ?? ''} onChange={handleChange} />
+                        <label htmlFor="complement">Complemento</label>
                     </article>
                     <p>Ao criar uma conta, você concorda com nossos <Link to="/politica-privacidade">Termos, Política de Privacidade e Política de Cookies.</Link></p>
 
-                    <button onClick={() => {handleSubmit()}}>Criar Conta</button>
+                    <button type="submit">Criar Conta</button>
                 </section>
             )}
         </form>
