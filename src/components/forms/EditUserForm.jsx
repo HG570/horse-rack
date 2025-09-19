@@ -186,8 +186,7 @@ function EditUserForm({ currentStep, setCurrentStep }) {
             {currentStep === 2 && (
                 <section>
                     <article>
-                        <select list="documents" id="documentType" name="docType" value={Object.keys(documentTypeMapping).find(key => documentTypeMapping[key] === formData.docType) || ''} onChange={handleChange} required >
-
+                        <select list="documents" id="documentType" name="docType" value={Object.keys(documentTypeMapping).find(key => documentTypeMapping[key] === formData.docType) || 1} onChange={handleChange} required >
                             <option value="RG">RG</option>
                             <option value="CPF">CPF</option>
                             <option value="CNH">CNH</option>
