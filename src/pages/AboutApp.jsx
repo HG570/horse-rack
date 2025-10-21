@@ -5,7 +5,7 @@ function AboutApp() {
         <div className={styles.container}>
             <h2>Sobre o Aplicativo</h2>
             <div className={styles.info}>
-                <p>Versão do App: <strong>1.0.0</strong></p>
+                <p>Versão do App: <strong>0.2.1</strong></p>
                 <p>Desenvolvido por:
                     <ul>
                         <li>
